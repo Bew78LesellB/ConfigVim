@@ -1,0 +1,14 @@
+# ignore backup dir
+backup
+
+# ignore undo dir
+undo
+
+# ignore swap dir and files
+swap
+*.swp
+
+# ignore other misc files
+viminfo
+.netrwhist
+*.tmp
