@@ -30,7 +30,15 @@ let g:nerdtree_tabs_autofind = 1
 
 let g:nerdtree_tabs_synchronize_view = 0
 
-nnoremap <M-f> :NERDTreeTabsFind<CR> :wincmd p<CR>
+nnoremap <M-f> :NERDTreeFind<CR> :wincmd p<CR>
+
+
+
+" ==== GUndo config ====
+nnoremap <F5> :GundoToggle<CR>
+
+let g:gundo_width = 42
+let g:gundo_preview_height = 20
 
 
 
@@ -40,7 +48,7 @@ let g:solarized_termcolors = 256
 syntax on
 set background=dark
 colorscheme solarized
-call togglebg#map("<F5>")
+call togglebg#map("<C-§>") " set a wtf keybind
 call TogBG()
 call TogBG()
 
