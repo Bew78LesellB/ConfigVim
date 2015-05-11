@@ -45,6 +45,7 @@ call TogBG()
 call TogBG()
 
 " Insert a tabulation (Alt + i) in insert mode
+set <M-i>=i
 inoremap <M-i> <C-V><Tab>
 
 " Indent line in insert mode, then go in normal mode (cursor at bol)
