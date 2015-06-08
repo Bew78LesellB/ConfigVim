@@ -26,9 +26,9 @@ let g:nerdtree_tabs_open_on_console_startup = 1
 " 2: always focus file at startup
 let g:nerdtree_tabs_smart_startup_focus = 2
 
-let g:nerdtree_tabs_autofind = 1
+"let g:nerdtree_tabs_autofind = 1
 
-let g:nerdtree_tabs_synchronize_view = 0
+let g:nerdtree_tabs_synchronize_view = 1
 
 nnoremap <M-f> :NERDTreeFind<CR> :wincmd p<CR>
 
@@ -39,6 +39,15 @@ nnoremap <F5> :GundoToggle<CR>
 
 let g:gundo_width = 42
 let g:gundo_preview_height = 20
+
+
+
+" ==== Syntastic config ====
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+" do not check synthax when closing the buffer window
+let g:syntastic_check_on_wq = 0
 
 
 
@@ -53,17 +62,22 @@ call TogBG()
 call TogBG()
 
 " Insert a tabulation (Alt + i) in insert mode
-inoremap <M-i> <C-V><Tab>
+imap <M-i> <C-V><Tab>
 
-" Indent line in insert mode, then go in normal mode (cursor at bol)
+" Indent line in insert mode, then go in normal mode (cursor at eol)
 " and stay in normal mode
-inoremap <Tab> <Esc>==$
+imap <Tab> <Esc>==$
+
+" add intentation to line
+"imap <Tab> <C-t>
+" rm indentation to line
+"imap <S-Tab> <C-d>
 
 " Indent line in insert mode, and replace the cursor at previous location
 " and go back in insert mode
 "inoremap <Tab> æ<Esc>==fæxi
 
-" Indent line in normal mode, and replace the cursor at previous location
+" Indent line in normal mode, and put the cursor at bol
 nnoremap <Tab> ==
 
 nnoremap <C-f> gg=G``
