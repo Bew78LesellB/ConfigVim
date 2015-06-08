@@ -6,3 +6,5 @@ setlocal cinoptions=>2s,n-s,f0,{s,}0,^-s,L0,l1,b1,+0,c0,C0,(0,us,U1,w0,W0,m1,M0,
 " Indent all file except the {E.} header, then go back to previous cursor
 " location
 nnoremap <C-f> 10G=G``
+
+setlocal colorcolumn=80
