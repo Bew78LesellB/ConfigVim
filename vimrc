@@ -8,6 +8,8 @@
 execute pathogen#infect() 
 
 
+" map leader definition
+let mapleader=","
 
 
 " Vim StatusLine configuration :
@@ -51,6 +53,10 @@ let g:syntastic_check_on_wq = 0
 
 
 
+" ==== CtrlP config ====
+nnoremap <C-S-P> :CtrlPBuffer<CR>
+
+
 "## Setting colorscheme
 set t_Co=256
 let g:solarized_termcolors = 256
@@ -64,10 +70,6 @@ call TogBG()
 " Insert a tabulation (Alt + i) in insert mode
 imap <M-i> <C-V><Tab>
 
-" Indent line in insert mode, then go in normal mode (cursor at eol)
-" and stay in normal mode
-imap <Tab> <Esc>==$
-
 " add intentation to line
 "imap <Tab> <C-t>
 " rm indentation to line
@@ -78,7 +80,10 @@ imap <Tab> <Esc>==$
 "inoremap <Tab> æ<Esc>==fæxi
 
 " Indent line in normal mode, and put the cursor at bol
-nnoremap <Tab> ==
+nnoremap <Tab> mi==`i
+
+" Indent line in insert mode, then go in normal mode
+imap <Tab> <Esc>mi==`il
 
 nnoremap <C-f> gg=G``
 
@@ -128,6 +133,7 @@ nnoremap <M-!> :!zsh<CR>
 nmap * *N
 
 
+cmap w!! w !sudo tee % >/dev/null
 
 
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,

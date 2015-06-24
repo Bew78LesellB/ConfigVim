@@ -1,2 +1,2 @@
-inoremap <Tab> <Esc>$
-nnoremap <Tab> ^
+inoremap <buffer> <Tab> <Esc>
+nnoremap <buffer> <Tab> <nop>
