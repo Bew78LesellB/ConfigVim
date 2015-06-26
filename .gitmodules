@@ -22,6 +22,3 @@
 [submodule "bundle/vim-markdown"]
 	path = bundle/vim-markdown
 	url = https://github.com/gabrielelana/vim-markdown.git
-[submodule "bundle/vim-lua-indent"]
-	path = bundle/vim-lua-indent
-	url = https://github.com/raymond-w-ko/vim-lua-indent.git
