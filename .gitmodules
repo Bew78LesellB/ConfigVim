@@ -25,3 +25,6 @@
 [submodule "bundle/vim-lua-indent"]
 	path = bundle/vim-lua-indent
 	url = https://github.com/raymond-w-ko/vim-lua-indent.git
+[submodule "bundle/syntastic"]
+	path = bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git
