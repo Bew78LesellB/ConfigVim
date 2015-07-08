@@ -1,11 +1,23 @@
 
-" An example for a vimrc file.
-"
-" Maintainer:	Bram Moolenaar <Bram@vim.org>
-" Last change:	2011 Apr 15
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
 
-" launch pathogen
-execute pathogen#infect() 
+Plugin 'gmarik/vundle'
+
+Plugin 'Kien/ctrlp.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'scrooloose/syntastic'
+Plugin 'Raimondi/delimitMate'
+Plugin 'itchyny/lightline.vim'
+Plugin 'scrooloose/nerdtree.git'
+Plugin 'jistr/vim-nerdtree-tabs'
+
+"Plugin 'Bew78LesellB/vim-colors-solarized'
+Plugin 'vim-colors-solarized-modif'
+
+filetype plugin indent on
 
 
 " map leader definition
@@ -16,9 +28,9 @@ let mapleader=","
 set laststatus=2		" 2:always show		1:show in splitview		0:never show
 
 " LightLine Configuration :
-let g:lightline = {
-			\ 'colorscheme': 'solarized_dark',
-			\ }
+"let g:lightline = {
+			"\ 'colorscheme': 'solarized_dark',
+			"\ }
 
 
 " ==== NERDTree config ====
@@ -61,11 +73,8 @@ nnoremap <C-S-P> :CtrlPBuffer<CR>
 set t_Co=256
 let g:solarized_termcolors = 256
 syntax on
-set background=dark
 colorscheme solarized
-call togglebg#map("<C-§>") " set a wtf keybind
-call TogBG()
-call TogBG()
+set background=dark
 
 " Insert a tabulation (Alt + i) in insert mode
 imap <M-i> <C-V><Tab>
@@ -116,6 +125,8 @@ set number
 
 set cursorline		" highlight the current line
 set cursorcolumn	" highlight the current column
+
+set timeoutlen=42
 
 " ???
 map Q gq

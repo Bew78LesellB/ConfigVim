@@ -4,26 +4,15 @@
 " First Author:	Max Ischenko <mfi 'at' ukr.net> TODO: add me :)
 " Last Change:	2015 Jun 26
 
-" Only load this indent file when no other was loaded.
-"if exists("b:did_indent")
-  "finish
-"endif
-"let b:did_indent = 1
-
-setlocal indentexpr=GetLuaIndent()
+setlocal indentexpr=MyGetLuaIndent()
 
 " To make Vim call GetLuaIndent() when it finds '\s*end' or '\s*until'
 " on the current line ('else' is default and includes 'elseif').
-setlocal indentkeys+=0=end,0=until
+setlocal indentkeys+=0=end,0=until,0=else,0=elseif
 
 setlocal autoindent
 
-" Only define the function once.
-if exists("*GetLuaIndent")
-  finish
-endif
-
-function! GetLuaIndent()
+function! MyGetLuaIndent()
   " Find a non-blank line above the current line.
   let prevlnum = prevnonblank(v:lnum - 1)
 
