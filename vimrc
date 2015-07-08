@@ -13,9 +13,9 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'itchyny/lightline.vim'
 Plugin 'scrooloose/nerdtree.git'
 Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'gabrielelana/vim-markdown.git'
 
-"Plugin 'Bew78LesellB/vim-colors-solarized'
-Plugin 'vim-colors-solarized-modif'
+Plugin 'Bew78LesellB/vim-colors-solarized'
 
 filetype plugin indent on
 
@@ -29,8 +29,8 @@ set laststatus=2		" 2:always show		1:show in splitview		0:never show
 
 " LightLine Configuration :
 "let g:lightline = {
-			"\ 'colorscheme': 'solarized_dark',
-			"\ }
+"\ 'colorscheme': 'solarized_dark',
+"\ }
 
 
 " ==== NERDTree config ====
@@ -75,6 +75,7 @@ let g:solarized_termcolors = 256
 syntax on
 colorscheme solarized
 set background=dark
+set background=light
 
 " Insert a tabulation (Alt + i) in insert mode
 imap <M-i> <C-V><Tab>
@@ -98,6 +99,9 @@ nnoremap <C-f> gg=G``
 
 " Toggle relativenumber
 nnoremap <M-r>	:set relativenumber! relativenumber?<CR>
+
+" Show hl infos
+nmap <F2> :echom "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">" <CR>
 
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
@@ -126,14 +130,11 @@ set number
 set cursorline		" highlight the current line
 set cursorcolumn	" highlight the current column
 
-set timeoutlen=42
+set timeoutlen=100
 
 " ???
 map Q gq
 
-
-" for ctrlp plugin
-set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 
 " run zsh
@@ -151,7 +152,6 @@ cmap w!! w !sudo tee % >/dev/null
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
 
-" In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
 	set mouse=nv " normal & visual
 endif
@@ -162,35 +162,21 @@ if &t_Co > 2 || has("gui_running")
 	syntax on
 endif
 
-" Only do this part when compiled with support for autocommands.
-if has("autocmd")
+" For all text files set 'textwidth' to 78 characters.
+autocmd FileType text setlocal textwidth=78
 
-	" Enable file type detection.
-	" Use the default filetype settings, so that mail gets 'tw' set to 72,
-	" 'cindent' is on in C files, etc.
-	" Also load indent files, to automatically do language-dependent indenting.
-	filetype plugin indent on
-
-	" For all text files set 'textwidth' to 78 characters.
-	autocmd FileType text setlocal textwidth=78
-
-	" When editing a file, always jump to the last known cursor position.
-	" Don't do it when the position is invalid or when inside an event handler
-	" (happens when dropping a file on gvim).
-	" Also don't do it when the mark is in the first line, that is the default
-	" position when opening a file.
-	autocmd BufReadPost *
-				\ if line("'\"") > 1 && line("'\"") <= line("$") |
-				\	 exe "normal! g`\"" |
-				\ endif
+" When editing a file, always jump to the last known cursor position.
+" Don't do it when the position is invalid or when inside an event handler
+" (happens when dropping a file on gvim).
+" Also don't do it when the mark is in the first line, that is the default
+" position when opening a file.
+autocmd BufReadPost *
+			\ if line("'\"") > 1 && line("'\"") <= line("$") |
+			\	 exe "normal! g`\"" |
+			\ endif
 
 augroup END
 
-else
-
-	"set autoindent		" always set autoindenting on
-
-endif " has("autocmd")
 
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
