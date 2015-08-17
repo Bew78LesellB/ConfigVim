@@ -4,18 +4,19 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-Plugin 'gmarik/vundle'
+Plugin 'gmarik/vundle'						" vundle
 
-Plugin 'Kien/ctrlp.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'scrooloose/syntastic'
-Plugin 'Raimondi/delimitMate'
-Plugin 'itchyny/lightline.vim'
-Plugin 'scrooloose/nerdtree.git'
-Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'gabrielelana/vim-markdown.git'
+Plugin 'sjl/gundo.vim'						" gundo
+Plugin 'Kien/ctrlp.vim'						" ctrlp
+Plugin 'tpope/vim-fugitive'					" vim-fugitive
+Plugin 'scrooloose/syntastic'				" syntastic
+Plugin 'Raimondi/delimitMate'				" delimitMate
+Plugin 'itchyny/lightline.vim'				" lightline
+Plugin 'scrooloose/nerdtree.git'			" nerdtree
+Plugin 'jistr/vim-nerdtree-tabs'			" vim-nerdtee-tabs
+Plugin 'gabrielelana/vim-markdown.git'		" vim-markdown
 
-Plugin 'Bew78LesellB/vim-colors-solarized'
+Plugin 'Bew78LesellB/vim-colors-solarized'	" vim-colors-solarized
 
 filetype plugin indent on
 
@@ -28,9 +29,9 @@ let mapleader=","
 set laststatus=2		" 2:always show		1:show in splitview		0:never show
 
 " LightLine Configuration :
-"let g:lightline = {
-"\ 'colorscheme': 'solarized_dark',
-"\ }
+let g:lightline = {
+			\ 'colorscheme': 'solarized_dark',
+			\ }
 
 
 " ==== NERDTree config ====
