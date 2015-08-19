@@ -9,12 +9,17 @@ Plugin 'gmarik/vundle'						" vundle
 Plugin 'sjl/gundo.vim'						" gundo
 Plugin 'Kien/ctrlp.vim'						" ctrlp
 Plugin 'tpope/vim-fugitive'					" vim-fugitive
-Plugin 'scrooloose/syntastic'				" syntastic
 Plugin 'Raimondi/delimitMate'				" delimitMate
 Plugin 'itchyny/lightline.vim'				" lightline
+Plugin 'scrooloose/syntastic'				" syntastic
 Plugin 'scrooloose/nerdtree.git'			" nerdtree
 Plugin 'jistr/vim-nerdtree-tabs'			" vim-nerdtee-tabs
 Plugin 'gabrielelana/vim-markdown.git'		" vim-markdown
+
+Plugin 'Shougo/vimshell'
+Plugin 'Shougo/neocomplete'					" neocomplete
+Plugin 'SirVer/ultisnips'
+Plugin 'szw/vim-ctrlspace'					" vim-ctrlspace
 
 Plugin 'Bew78LesellB/vim-colors-solarized'	" vim-colors-solarized
 
@@ -22,52 +27,40 @@ filetype plugin indent on
 
 
 " map leader definition
-let mapleader=","
+let mapleader = ","
 
 
-" Vim StatusLine configuration :
-set laststatus=2		" 2:always show		1:show in splitview		0:never show
-
-" LightLine Configuration :
-let g:lightline = {
-			\ 'colorscheme': 'solarized_dark',
-			\ }
-
-
-" ==== NERDTree config ====
-let g:nerdtree_tabs_open_on_console_startup = 1
-
-" 1: focus nerdtree if opening folder, focus file if opening file
-" 2: always focus file at startup
-let g:nerdtree_tabs_smart_startup_focus = 2
-
-"let g:nerdtree_tabs_autofind = 1
-
-let g:nerdtree_tabs_synchronize_view = 1
-
-nnoremap <M-f> :NERDTreeFind<CR> :wincmd p<CR>
+" always show the statusline
+set laststatus=2
 
 
 
-" ==== GUndo config ====
-nnoremap <F5> :GundoToggle<CR>
+" Config Helper
+function! s:loadConfigFile(path)
+	if a:path[0:9] == "config.rc/"
+		let l:path = a:path
+	else
+		let l:path = "config.rc/" . a:path
+	endif
+	if filereadable(l:path)
+		exec "source " . l:path
+	endif
+endfunction
 
-let g:gundo_width = 42
-let g:gundo_preview_height = 20
+function! s:loadConfigDir(dirpath)
+	for filepath in split(globpath("config.rc/" . a:dirpath, "*"), "\n")
+		call s:loadConfigFile(filepath)
+	endfor
+endfunction
+
+
+call s:loadConfigDir("plugins")
 
 
 
-" ==== Syntastic config ====
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-" do not check synthax when closing the buffer window
-let g:syntastic_check_on_wq = 0
 
 
 
-" ==== CtrlP config ====
-nnoremap <C-S-P> :CtrlPBuffer<CR>
 
 
 "## Setting colorscheme
@@ -81,16 +74,7 @@ set background=light
 " Insert a tabulation (Alt + i) in insert mode
 imap <M-i> <C-V><Tab>
 
-" add intentation to line
-"imap <Tab> <C-t>
-" rm indentation to line
-"imap <S-Tab> <C-d>
-
-" Indent line in insert mode, and replace the cursor at previous location
-" and go back in insert mode
-"inoremap <Tab> æ<Esc>==fæxi
-
-" Indent line in normal mode, and put the cursor at bol
+" Indent line in normal mode
 nnoremap <Tab> mi==`i
 
 " Indent line in insert mode, then go in normal mode
@@ -101,7 +85,7 @@ nnoremap <C-f> gg=G``
 " Toggle relativenumber
 nnoremap <M-r>	:set relativenumber! relativenumber?<CR>
 
-" Show hl infos
+" Show highlight infos
 nmap <F2> :echom "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">" <CR>
 
 " When started as "evim", evim.vim will already have done these settings.
@@ -126,24 +110,14 @@ set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 set hlsearch		" do highlight the serched text
 set number
-"set incsearch		" do incremental searching
 
 set cursorline		" highlight the current line
 set cursorcolumn	" highlight the current column
 
+set hidden
+
 set timeoutlen=100
 
-" ???
-map Q gq
-
-
-
-" run zsh
-nnoremap <M-!> :!zsh<CR>
-
-
-" keep the cursor on current word when searching for current word
-nmap * *N
 
 
 cmap w!! w !sudo tee % >/dev/null
@@ -164,7 +138,7 @@ if &t_Co > 2 || has("gui_running")
 endif
 
 " For all text files set 'textwidth' to 78 characters.
-autocmd FileType text setlocal textwidth=78
+autocmd FileType text setlocal textwidth=80
 
 " When editing a file, always jump to the last known cursor position.
 " Don't do it when the position is invalid or when inside an event handler
@@ -189,7 +163,7 @@ endif
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""
-" Set backup / swp / undofile dirs in ~/.vim/
+" Set backup / swp / undo dirs in ~/.vim/
 
 " Save your backups to a less annoying place than the current directory.
 " If you have .vim-backup in the current directory, it'll use that.
