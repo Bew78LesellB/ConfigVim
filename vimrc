@@ -12,9 +12,10 @@ Plugin 'tpope/vim-fugitive'					" vim-fugitive
 Plugin 'Raimondi/delimitMate'				" delimitMate
 Plugin 'itchyny/lightline.vim'				" lightline
 Plugin 'scrooloose/syntastic'				" syntastic
-Plugin 'scrooloose/nerdtree.git'			" nerdtree
-Plugin 'jistr/vim-nerdtree-tabs'			" vim-nerdtee-tabs
 Plugin 'gabrielelana/vim-markdown.git'		" vim-markdown
+
+"Plugin 'scrooloose/nerdtree.git'			" nerdtree
+"Plugin 'jistr/vim-nerdtree-tabs'			" vim-nerdtee-tabs
 
 Plugin 'Shougo/vimshell'
 Plugin 'Shougo/neocomplete'					" neocomplete
@@ -37,18 +38,13 @@ set laststatus=2
 
 " Config Helper
 function! s:loadConfigFile(path)
-	if a:path[0:9] == "config.rc/"
-		let l:path = a:path
-	else
-		let l:path = "config.rc/" . a:path
-	endif
-	if filereadable(l:path)
-		exec "source " . l:path
+	if filereadable(a:path)
+		exec "source " . a:path
 	endif
 endfunction
 
 function! s:loadConfigDir(dirpath)
-	for filepath in split(globpath("config.rc/" . a:dirpath, "*"), "\n")
+	for filepath in split(globpath("~/.vim/config.rc/" . a:dirpath, "*.vim"), "\n")
 		call s:loadConfigFile(filepath)
 	endfor
 endfunction
@@ -58,9 +54,8 @@ call s:loadConfigDir("plugins")
 
 
 
-
-
-
+" Save buffer
+nnoremap <M-Space> :w<cr>
 
 
 "## Setting colorscheme
@@ -71,14 +66,27 @@ colorscheme solarized
 set background=dark
 set background=light
 
+
+
+" Nice colors for TabLine
+hi TabLineSel term=NONE cterm=NONE ctermfg=187 ctermbg=235 guifg=#eee8d5 guibg=#073642
+hi TabLine term=NONE cterm=NONE ctermfg=230 ctermbg=239 guifg=#fdf6e3 guibg=#586e75
+hi TabLineFill term=reverse cterm=reverse ctermfg=187 ctermbg=244 guibg=Grey
+
+
+
+
+
+
+
 " Insert a tabulation (Alt + i) in insert mode
-imap <M-i> <C-V><Tab>
+inoremap <M-i> <C-V><Tab>
 
 " Indent line in normal mode
 nnoremap <Tab> mi==`i
 
 " Indent line in insert mode, then go in normal mode
-imap <Tab> <Esc>mi==`il
+inoremap <Tab> <Esc>mi==`il
 
 nnoremap <C-f> gg=G``
 
@@ -87,6 +95,13 @@ nnoremap <M-r>	:set relativenumber! relativenumber?<CR>
 
 " Show highlight infos
 nmap <F2> :echom "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">" <CR>
+
+
+" copy/paste with system clipboard
+" copy from visual mode
+vnoremap <M-c> :'<,'>w !xclip -in -selection clipboard<cr>
+" paste in normal mode
+nnoremap <silent> <M-v> :r !xclip -out -selection clipboard<cr>
 
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
