@@ -9,8 +9,3 @@ let g:lightline.enable = {
 			\ 'tabline': 0,
 			\ }
 
-let g:lightline.tabline = {
-			\ 'left': [ [ 'tabs' ] ],
-			\ 'right': [],
-			\ }
-

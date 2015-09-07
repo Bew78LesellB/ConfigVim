@@ -4,28 +4,39 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-Plugin 'gmarik/vundle'						" vundle
+Plugin 'gmarik/vundle'						" vundle - Plugin loader
 
 Plugin 'sjl/gundo.vim'						" gundo
-Plugin 'Kien/ctrlp.vim'						" ctrlp
-Plugin 'tpope/vim-fugitive'					" vim-fugitive
-Plugin 'Raimondi/delimitMate'				" delimitMate
-Plugin 'itchyny/lightline.vim'				" lightline
-Plugin 'scrooloose/syntastic'				" syntastic
-Plugin 'gabrielelana/vim-markdown.git'		" vim-markdown
+Plugin 'Raimondi/delimitMate'				" auto insert of second ()''{}[]\"\" etc...
+Plugin 'itchyny/lightline.vim'				" statusline highlight
+Plugin 'scrooloose/syntastic'				" syntastic - as-you-type errors checker
+Plugin 'gabrielelana/vim-markdown.git'		" markdown advanced syntax highlighter and editor
 
+Plugin 'mhinz/vim-startify'					" add a custom startup screen for vim
+
+Plugin 'xolox/vim-misc'						" Auto-load Vim scripts (used by vim-easytags) (good!)
+Plugin 'xolox/vim-easytags'					" ctags file managment and highlighting
+Plugin 'majutsushi/tagbar'					" sidebar with arrenged tags of the current file
+
+Plugin 'SirVer/ultisnips'					" snippets
+
+Plugin 'Shougo/neocomplete'					" neocomplete - as-you-type auto-complete
+Plugin 'szw/vim-ctrlspace'					" Control your space (buffers/tags/workspaces/etc..)
+
+Plugin 'Bew78LesellB/vim-colors-solarized'	" vim-colors-solarized - favorite colorsheme <3
+
+" currently unused plugins
+"Plugin 'Shougo/vimshell'
+"Plugin 'tpope/vim-fugitive'					" vim-fugitive
+"Plugin 'Kien/ctrlp.vim'						" ctrlp
+
+" disabled plugins
 "Plugin 'scrooloose/nerdtree.git'			" nerdtree
 "Plugin 'jistr/vim-nerdtree-tabs'			" vim-nerdtee-tabs
 
-Plugin 'Shougo/vimshell'
-Plugin 'Shougo/neocomplete'					" neocomplete
-Plugin 'SirVer/ultisnips'
-Plugin 'szw/vim-ctrlspace'					" vim-ctrlspace
-
-Plugin 'Bew78LesellB/vim-colors-solarized'	" vim-colors-solarized
-
 filetype plugin indent on
 
+set encoding=utf-8
 
 " map leader definition
 let mapleader = ","
@@ -35,8 +46,7 @@ let mapleader = ","
 set laststatus=2
 
 
-
-" Config Helper
+" Config Helper - TODO: convert as a vim plugin (customizable)
 function! s:loadConfigFile(path)
 	if filereadable(a:path)
 		exec "source " . a:path
@@ -53,9 +63,17 @@ endfunction
 call s:loadConfigDir("plugins")
 
 
+" Disable every gvim gui stuff
+if (has("gui"))
+	set guioptions=
+endif
+
 
 " Save buffer
 nnoremap <M-Space> :w<cr>
+
+" Toggle wrap
+nnoremap <M-w> :set wrap! wrap?<cr>
 
 
 "## Setting colorscheme
@@ -63,9 +81,11 @@ set t_Co=256
 let g:solarized_termcolors = 256
 syntax on
 colorscheme solarized
-set background=dark
-set background=light
 
+set background=dark
+if (!has("gui_running"))
+	set background=light " this is weird but if fixes dark color...
+endif
 
 
 " Nice colors for TabLine
@@ -76,10 +96,15 @@ hi TabLineFill term=reverse cterm=reverse ctermfg=187 ctermbg=244 guibg=Grey
 
 
 
+" Open Tagbar
+nmap <F8> :TagbarToggle<CR>
 
+" Open a zsh at cwd
+nmap <M-z> :!zsh<cr>
 
 
 " Insert a tabulation (Alt + i) in insert mode
+set <M-i>=é
 inoremap <M-i> <C-V><Tab>
 
 " Indent line in normal mode
@@ -115,15 +140,18 @@ set nocompatible
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-if has("vms")
-	set nobackup		" do not keep a backup file, use versions instead
-else
-	set backup		" keep a backup file
-endif
+set backup		" keep a backup file
+
 set history=99		" keep 99 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
+
 set hlsearch		" do highlight the serched text
+
+" apply smart case searching
+set ignorecase
+set smartcase
+
 set number
 
 set cursorline		" highlight the current line
@@ -133,8 +161,20 @@ set hidden
 
 set timeoutlen=100
 
+" Show non visible chars (tabs/trailing spaces/too long lines/etc..)
+set list
+set listchars=tab:>\ ,trail:@,precedes:<,extends:>,nbsp:. " how to show differents categories of invisible chars
+
+set scrolloff=3                 " minimum lines to keep above and below cursor
+
+" Command line options
+set wildmenu                    " show list instead of just completing
+set wildmode=longest:full,full	" command <Tab> completion, list matches, then longest common part, then all.
 
 
+
+
+" ask for sudo passwd and save the file
 cmap w!! w !sudo tee % >/dev/null
 
 
@@ -162,7 +202,7 @@ autocmd FileType text setlocal textwidth=80
 " position when opening a file.
 autocmd BufReadPost *
 			\ if line("'\"") > 1 && line("'\"") <= line("$") |
-			\	 exe "normal! g`\"" |
+			\	exe "normal! g`\"" |
 			\ endif
 
 augroup END

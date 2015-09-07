@@ -12,3 +12,6 @@ swap
 viminfo
 .netrwhist
 *.tmp
+
+# ignore tags files
+tags
