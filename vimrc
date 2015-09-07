@@ -20,7 +20,7 @@ Plugin 'majutsushi/tagbar'					" sidebar with arrenged tags of the current file
 
 Plugin 'SirVer/ultisnips'					" snippets
 
-Plugin 'Shougo/neocomplete'					" neocomplete - as-you-type auto-complete
+Plugin 'Shougo/neocomplete.vim'					" neocomplete - as-you-type auto-complete
 Plugin 'szw/vim-ctrlspace'					" Control your space (buffers/tags/workspaces/etc..)
 
 Plugin 'Bew78LesellB/vim-colors-solarized'	" vim-colors-solarized - favorite colorsheme <3
