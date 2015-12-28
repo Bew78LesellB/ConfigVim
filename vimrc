@@ -77,6 +77,7 @@ endif
 
 " Save buffer
 nnoremap <M-Space> :w<cr>
+inoremap <M-Space> <Esc>:w<cr>
 
 " Toggle wrap
 nnoremap <M-w> :set wrap! wrap?<cr>
@@ -90,7 +91,7 @@ colorscheme solarized
 
 set background=dark
 if (!has("gui_running"))
-	set background=light " this is weird but if fixes dark color...
+	set background=light " this is weird but it fixes dark color...
 endif
 
 
@@ -101,6 +102,9 @@ hi TabLineFill term=reverse cterm=reverse ctermfg=187 ctermbg=244 guibg=Grey
 
 
 
+" Map the Menu key to do nothing (default will Escape..)
+"set <F7>=[29~
+"noremap <F7> <nop>
 
 " Open Tagbar
 nmap <F8> :TagbarToggle<CR>
@@ -108,10 +112,13 @@ nmap <F8> :TagbarToggle<CR>
 " Open a zsh at cwd
 nmap <M-z> :!zsh<cr>
 
+" Discard last search highlight
+nnoremap <silent> § :noh \| echo "Search cleared"<cr>
 
 " Insert a tabulation (Alt + i) in insert mode
 set <M-i>=é
 inoremap <M-i> <C-V><Tab>
+nnoremap <M-i> <nop>
 
 " Indent line in normal mode
 nnoremap <Tab> mi==`i
@@ -119,6 +126,10 @@ nnoremap <Tab> mi==`i
 " Indent line in insert mode, then go in normal mode
 inoremap <Tab> <Esc>mi==`il
 
+" Indent visual selection
+vnoremap <Tab> :'<,'>normal! ==<cr>
+
+" Format the file
 nnoremap <C-f> gg=G``
 
 " Toggle relativenumber
@@ -127,19 +138,19 @@ nnoremap <M-r>	:set relativenumber! relativenumber?<CR>
 " Show highlight infos
 nmap <F2> :echom "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">" <CR>
 
+" Goto prev/next location
+nnoremap ]l :lnext<cr>
+nnoremap [l :lprev<cr>
 
-" copy/paste with system clipboard
-" copy from visual mode
+" Toggle PASTE mode
+nmap <M-p> :set paste! paste?<CR>
+
+" Copy/Paste with system clipboard
+" > copy from visual mode
 vnoremap <M-c> :'<,'>w !xclip -in -selection clipboard<cr>
-" paste in normal mode
+" > paste in normal mode
 nnoremap <silent> <M-v> :r !xclip -out -selection clipboard<cr>
 
-" When started as "evim", evim.vim will already have done these settings.
-if v:progname =~? "evim"
-	finish
-endif
-
-" Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
@@ -159,24 +170,37 @@ set ignorecase
 set smartcase
 
 set number
+set relativenumber
 
 set cursorline		" highlight the current line
 set cursorcolumn	" highlight the current column
 
 set hidden
 
-set timeoutlen=100
+set timeoutlen=300
+
+" Auto indent the next lie
+set autoindent
 
 " Show non visible chars (tabs/trailing spaces/too long lines/etc..)
 set list
-set listchars=tab:>\ ,trail:@,precedes:<,extends:>,nbsp:. " how to show differents categories of invisible chars
+set listchars=tab:\ \ ,trail:@,precedes:<,extends:>,nbsp:. " how to show differents categories of invisible chars
 
-set scrolloff=3                 " minimum lines to keep above and below cursor
+set scrolloff=3					" minimum lines to keep above and below cursor
 
 " Command line options
-set wildmenu                    " show list instead of just completing
+set wildmenu					" show list instead of just completing
 set wildmode=longest:full,full	" command <Tab> completion, list matches, then longest common part, then all.
 
+
+" search
+set wildignore+=*.o
+set wildignore+=tags
+
+" TODO Setup clipboard
+" > Use register "* for all yank/delete/change
+"""" > Use register "+ for X11 clipboard
+"set clipboard=unnamed
 
 
 
@@ -210,9 +234,6 @@ autocmd BufReadPost *
 			\ if line("'\"") > 1 && line("'\"") <= line("$") |
 			\	exe "normal! g`\"" |
 			\ endif
-
-augroup END
-
 
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
