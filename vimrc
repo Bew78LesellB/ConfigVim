@@ -6,7 +6,7 @@ call vundle#rc()
 
 Plugin 'gmarik/vundle'						" vundle - Plugin loader
 
-Plugin 'sjl/gundo.vim'						" gundo
+Plugin 'sjl/gundo.vim'						" undo tree
 Plugin 'Raimondi/delimitMate'				" auto insert of second ()''{}[]\"\" etc...
 Plugin 'itchyny/lightline.vim'				" statusline highlight
 Plugin 'scrooloose/syntastic'				" syntastic - as-you-type errors checker
@@ -18,12 +18,18 @@ Plugin 'xolox/vim-misc'						" Auto-load Vim scripts (used by vim-easytags) (goo
 Plugin 'xolox/vim-easytags'					" ctags file managment and highlighting
 Plugin 'majutsushi/tagbar'					" sidebar with arrenged tags of the current file
 
+Plugin 'tpope/vim-surround'					" vim-surround
+Plugin 'terryma/vim-multiple-cursors'		" multiple cursor
 Plugin 'SirVer/ultisnips'					" snippets
 
 Plugin 'Shougo/neocomplete.vim'					" neocomplete - as-you-type auto-complete
 Plugin 'szw/vim-ctrlspace'					" Control your space (buffers/tags/workspaces/etc..)
 
+Plugin 'etaoins/vim-volt-syntax'			" syntax for .volt files (view engin for Phalcon-PHP)
 Plugin 'Bew78LesellB/vim-colors-solarized'	" vim-colors-solarized - favorite colorsheme <3
+
+
+Plugin 'xterm-color-table.vim'				" Provide some commands to display all cterm colors
 
 " currently unused plugins
 "Plugin 'Shougo/vimshell'
