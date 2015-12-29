@@ -25,7 +25,6 @@ Plugin 'SirVer/ultisnips'					" snippets
 Plugin 'Shougo/neocomplete.vim'					" neocomplete - as-you-type auto-complete
 Plugin 'szw/vim-ctrlspace'					" Control your space (buffers/tags/workspaces/etc..)
 
-Plugin 'etaoins/vim-volt-syntax'			" syntax for .volt files (view engin for Phalcon-PHP)
 Plugin 'Bew78LesellB/vim-colors-solarized'	" vim-colors-solarized - favorite colorsheme <3
 
 
@@ -34,11 +33,9 @@ Plugin 'xterm-color-table.vim'				" Provide some commands to display all cterm c
 " currently unused plugins
 "Plugin 'Shougo/vimshell'
 "Plugin 'tpope/vim-fugitive'					" vim-fugitive
-"Plugin 'Kien/ctrlp.vim'						" ctrlp
 
 " disabled plugins
 "Plugin 'scrooloose/nerdtree.git'			" nerdtree
-"Plugin 'jistr/vim-nerdtree-tabs'			" vim-nerdtee-tabs
 
 filetype plugin indent on
 
