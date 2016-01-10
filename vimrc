@@ -25,6 +25,8 @@ Plugin 'SirVer/ultisnips'					" snippets
 Plugin 'Shougo/neocomplete.vim'					" neocomplete - as-you-type auto-complete
 Plugin 'szw/vim-ctrlspace'					" Control your space (buffers/tags/workspaces/etc..)
 
+Plugin 'superbrothers/vim-vimperator'
+
 Plugin 'Bew78LesellB/vim-colors-solarized'	" vim-colors-solarized - favorite colorsheme <3
 
 
@@ -69,12 +71,16 @@ call s:loadConfigDir("plugins")
 " Disable every gvim gui stuff
 if (has("gui"))
 	set guioptions=
+	set guifont=Font\ Awesome\ 11
 endif
 
 
 " Save buffer
 nnoremap <M-Space> :w<cr>
 inoremap <M-Space> <Esc>:w<cr>
+
+nnoremap <C-s> :w<cr>
+inoremap <C-s> <Esc>:w<cr>
 
 " Toggle wrap
 nnoremap <M-w> :set wrap! wrap?<cr>
@@ -104,10 +110,10 @@ hi TabLineFill term=reverse cterm=reverse ctermfg=187 ctermbg=244 guibg=Grey
 "noremap <F7> <nop>
 
 " Open Tagbar
-nmap <F8> :TagbarToggle<CR>
+nnoremap <F8> :TagbarToggle<CR>
 
 " Open a zsh at cwd
-nmap <M-z> :!zsh<cr>
+nnoremap <M-z> :!zsh<cr>
 
 " Discard last search highlight
 nnoremap <silent> § :noh \| echo "Search cleared"<cr>
@@ -119,8 +125,6 @@ nnoremap <M-i> <nop>
 
 " Indent line in normal mode
 nnoremap <Tab> mi==`i
-
-" Indent line in insert mode, then go in normal mode
 inoremap <Tab> <Esc>mi==`il
 
 " Indent visual selection
@@ -140,7 +144,7 @@ nnoremap ]l :lnext<cr>
 nnoremap [l :lprev<cr>
 
 " Toggle PASTE mode
-nmap <M-p> :set paste! paste?<CR>
+nnoremap <M-p> :set paste! paste?<CR>
 
 " Copy/Paste with system clipboard
 " > copy from visual mode
