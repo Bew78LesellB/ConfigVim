@@ -56,3 +56,6 @@
 	path = bundle/xterm-color-table.vim
 	url = https://github.com/guns/xterm-color-table.vim
 
+[submodule "bundle/vim-vimperator"]
+	path = bundle/vim-vimperator
+	url = git@github.com:superbrothers/vim-vimperator.git
