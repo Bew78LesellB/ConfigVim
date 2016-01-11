@@ -27,6 +27,8 @@ Plugin 'szw/vim-ctrlspace'					" Control your space (buffers/tags/workspaces/etc
 
 Plugin 'superbrothers/vim-vimperator'
 
+Plugin 'octol/vim-cpp-enhanced-highlight'
+
 Plugin 'Bew78LesellB/vim-colors-solarized'	" vim-colors-solarized - favorite colorsheme <3
 
 
