@@ -22,7 +22,7 @@ Plugin 'tpope/vim-surround'					" vim-surround
 Plugin 'terryma/vim-multiple-cursors'		" multiple cursor
 Plugin 'SirVer/ultisnips'					" snippets
 
-Plugin 'Shougo/neocomplete.vim'					" neocomplete - as-you-type auto-complete
+Plugin 'Shougo/neocomplete.vim'				" neocomplete - as-you-type auto-complete
 Plugin 'szw/vim-ctrlspace'					" Control your space (buffers/tags/workspaces/etc..)
 
 Plugin 'superbrothers/vim-vimperator'
@@ -76,6 +76,11 @@ if (has("gui"))
 	set guifont=Font\ Awesome\ 11
 endif
 
+" Always move in normal mode
+inoremap <Left> <nop>
+inoremap <Right> <nop>
+inoremap <Up> <nop>
+inoremap <Down> <nop>
 
 " Save buffer
 nnoremap <M-Space> :w<cr>
@@ -114,11 +119,18 @@ hi TabLineFill term=reverse cterm=reverse ctermfg=187 ctermbg=244 guibg=Grey
 " Open Tagbar
 nnoremap <F8> :TagbarToggle<CR>
 
+" Launch SyntasticCheck
+nnoremap <M-m> :SyntasticCheck<CR>
+
 " Open a zsh at cwd
 nnoremap <M-z> :!zsh<cr>
 
 " Discard last search highlight
 nnoremap <silent> § :noh \| echo "Search cleared"<cr>
+
+" Goto tabs
+nnoremap <M-J> gT
+nnoremap <M-K> gt
 
 " Insert a tabulation (Alt + i) in insert mode
 set <M-i>=é
