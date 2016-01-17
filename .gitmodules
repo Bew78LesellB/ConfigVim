@@ -62,3 +62,9 @@
 [submodule "bundle/vim-cpp-enhanced-highlight"]
 	path = bundle/vim-cpp-enhanced-highlight
 	url = git@github.com:octol/vim-cpp-enhanced-highlight.git
+[submodule "bundle/vim-fugitive"]
+	path = bundle/vim-fugitive
+	url = git@github.com:tpope/vim-fugitive.git
+[submodule "bundle/vimproc.vim"]
+	path = bundle/vimproc.vim
+	url = https://github.com/Shougo/vimproc.vim.git

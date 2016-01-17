@@ -34,9 +34,11 @@ Plugin 'Bew78LesellB/vim-colors-solarized'	" vim-colors-solarized - favorite col
 
 Plugin 'xterm-color-table.vim'				" Provide some commands to display all cterm colors
 
-" currently unused plugins
-"Plugin 'Shougo/vimshell'
-"Plugin 'tpope/vim-fugitive'					" vim-fugitive
+" Vim Shell
+Plugin 'Shougo/vimshell.vim'
+Plugin 'Shougo/vimproc.vim'					" Helper for vimshell
+
+Plugin 'tpope/vim-fugitive'					" vim-fugitive
 
 " disabled plugins
 "Plugin 'scrooloose/nerdtree.git'			" nerdtree
