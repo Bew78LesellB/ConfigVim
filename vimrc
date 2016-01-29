@@ -204,6 +204,8 @@ set list
 set listchars=tab:·\ ,trail:@,precedes:<,extends:>,nbsp:. " how to show differents categories of invisible chars
 
 set scrolloff=3					" minimum lines to keep above and below cursor
+set sidescrolloff=16			" minimum chars to keep on the left/right of the cursor
+set sidescroll=1				" scroll chars one by one
 
 " Command line options
 set wildmenu					" show list instead of just completing
