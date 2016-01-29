@@ -10,7 +10,7 @@ endsnippet
 
 snippet ifndef "#ifndef ... #define ... #endif"
 #ifndef ${1/([A-Za-z0-9_]+).*/$1/}
-#define ${1:SYMBOL}
+# define ${1:SYMBOL}
 
 #endif
 endsnippet
@@ -22,38 +22,23 @@ ${VISUAL}${0}
 endsnippet
 
 snippet inc "#include local header (inc)"
-#include "${1:`!p snip.rv = snip.basename + '.h'`}"
+#include "${1:`!p snip.rv = snip.basename`}${2:.h}"${0}
 endsnippet
 
 snippet Inc "#include <> (Inc)"
 #include <${1:.h}>
 endsnippet
 
-snippet mark "#pragma mark (mark)"
-#if 0
-${1:#pragma mark -
-}#pragma mark $2
-#endif
-
-$0
-endsnippet
-
 snippet main "main() (main)"
-int main(int argc, char *argv[])
+int main(${1:int ac, char *av[]})
 {
 	${VISUAL}${0}
-	return 0;
+	return (0);
 }
 endsnippet
 
 snippet for "for loop (for)"
 for (${2:i} = 0; $2 < ${1:count}; ${3:++$2}) {
-	${VISUAL}${0}
-}
-endsnippet
-
-snippet fori "for int loop (fori)"
-for (${4:int} ${2:i} = 0; $2 < ${1:count}; ${3:++$2}) {
 	${VISUAL}${0}
 }
 endsnippet
@@ -86,15 +71,10 @@ typedef ${1:int} ${2:MyCustomType};
 endsnippet
 
 snippet wh "while loop"
-while(${1:/* condition */}) {
+while (${1:/* condition */})
+{
 	${VISUAL}${0}
 }
-endsnippet
-
-snippet do "do...while loop (do)"
-do {
-	${VISUAL}${0}
-} while(${1:/* condition */});
 endsnippet
 
 snippet fprintf "fprintf ..."
@@ -102,7 +82,8 @@ fprintf(${1:stderr}, "${2:%s}\n"${2/([^%]|%%)*(%.)?.*/(?2:, :\);)/}$3${2/([^%]|%
 endsnippet
 
 snippet eli "else if .. (eli)"
-else if (${1:/* condition */}) {
+else if (${1:/* condition */})
+{
 	${VISUAL}${0}
 }
 endsnippet
@@ -112,7 +93,8 @@ printf("${1:%s}\n"${1/([^%]|%%)*(%.)?.*/(?2:, :\);)/}$2${1/([^%]|%%)*(%.)?.*/(?2
 endsnippet
 
 snippet st "struct"
-struct ${1:`!p snip.rv = (snip.basename or "name") + "_t"`} {
+struct ${1:`!p snip.rv = "t_" + (snip.basename or "name")`}
+{
 	${0:/* data */}
 };
 endsnippet
@@ -124,7 +106,7 @@ ${1:void} ${2:function_name}(${3})
 }
 endsnippet
 
-snippet fund "function declaration" b
+snippet funp "function prototype" b
 ${1:void} ${2:function_name}(${3});
 endsnippet
 
