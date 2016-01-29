@@ -1,15 +1,13 @@
 # ignore backup dir
-backup
-
-# ignore undo dir
-undo
-
-# ignore swap dir and files
-swap
+backup/
+undo/
+swap/
 *.swp
 
 # ignore other misc files
 viminfo
+globaltags
+glo
 .netrwhist
 *.tmp
 
