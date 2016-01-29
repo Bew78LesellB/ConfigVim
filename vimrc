@@ -201,7 +201,7 @@ set autoindent
 
 " Show non visible chars (tabs/trailing spaces/too long lines/etc..)
 set list
-set listchars=tab:\ \ ,trail:@,precedes:<,extends:>,nbsp:. " how to show differents categories of invisible chars
+set listchars=tab:·\ ,trail:@,precedes:<,extends:>,nbsp:. " how to show differents categories of invisible chars
 
 set scrolloff=3					" minimum lines to keep above and below cursor
 
