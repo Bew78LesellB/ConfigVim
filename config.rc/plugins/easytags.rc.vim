@@ -7,7 +7,8 @@ set cpoptions+=d
 " make future tags file in current directory
 let g:easytags_dynamic_files = 2
 
-let g:easytags_file = '~/.vim/globaltags'
+"let g:easytags_file = '~/.vim/globaltags'
+let g:easytags_by_filetype = '~/.vim/ft-tags/'
 
 let g:easytags_resolve_links = 1
 

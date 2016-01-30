@@ -29,6 +29,8 @@ Plugin 'superbrothers/vim-vimperator'
 
 Plugin 'Bew78LesellB/vim-colors-solarized'	" vim-colors-solarized - favorite colorsheme <3
 
+" File explorer
+Plugin 'Shougo/vimfiler.vim'
 
 Plugin 'xterm-color-table.vim'				" Provide some commands to display all cterm colors
 
@@ -36,7 +38,7 @@ Plugin 'xterm-color-table.vim'				" Provide some commands to display all cterm c
 Plugin 'Shougo/vimshell.vim'
 Plugin 'Shougo/vimproc.vim'					" Helper for vimshell
 
-Plugin 'tpope/vim-fugitive'					" vim-fugitive
+"Plugin 'tpope/vim-fugitive'					" vim-fugitive
 
 " C / CPP
 "Plugin 'vim-scripts/OmniCppComplete'		" CPP contextual completion
@@ -46,9 +48,6 @@ Plugin 'octol/vim-cpp-enhanced-highlight'	" Better highlight
 " Lua
 Plugin 'xolox/vim-lua-ftplugin'				" Advanced lua completion
 "Plugin 'xolox/vim-lua-inspect'				" Advanced lua semantic analysis (too heavy)
-
-" disabled plugins
-"Plugin 'scrooloose/nerdtree.git'			" nerdtree
 
 filetype indent on
 
@@ -227,7 +226,7 @@ set wildmode=longest:full,full	" command <Tab> completion, list matches, then lo
 set wildignore+=*.o
 set wildignore+=tags
 
-" TODO Setup clipboard
+" TODO Setup X clipboard
 " > Use register "* for all yank/delete/change
 """" > Use register "+ for X11 clipboard
 "set clipboard=unnamed
@@ -235,7 +234,7 @@ set wildignore+=tags
 
 
 " ask for sudo passwd and save the file
-cmap w!! w !sudo tee % >/dev/null
+cnoremap w!! w !sudo tee % >/dev/null
 
 
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
