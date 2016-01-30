@@ -27,8 +27,6 @@ Plugin 'szw/vim-ctrlspace'					" Control your space (buffers/tags/workspaces/etc
 
 Plugin 'superbrothers/vim-vimperator'
 
-Plugin 'octol/vim-cpp-enhanced-highlight'
-
 Plugin 'Bew78LesellB/vim-colors-solarized'	" vim-colors-solarized - favorite colorsheme <3
 
 
@@ -40,10 +38,23 @@ Plugin 'Shougo/vimproc.vim'					" Helper for vimshell
 
 Plugin 'tpope/vim-fugitive'					" vim-fugitive
 
+" C / CPP
+"Plugin 'vim-scripts/OmniCppComplete'		" CPP contextual completion
+Plugin 'octol/vim-cpp-enhanced-highlight'	" Better highlight
+"Plugin 'Rip-Rip/clang_complete'			" Advanced completion using clang
+
+" Lua
+Plugin 'xolox/vim-lua-ftplugin'				" Advanced lua completion
+"Plugin 'xolox/vim-lua-inspect'				" Advanced lua semantic analysis (too heavy)
+
 " disabled plugins
 "Plugin 'scrooloose/nerdtree.git'			" nerdtree
 
-filetype plugin indent on
+filetype indent on
+
+filetype plugin on
+" Enable omni completion
+set omnifunc=syntaxcomplete#Complete
 
 set encoding=utf-8
 

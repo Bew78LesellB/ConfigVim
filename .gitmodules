@@ -68,3 +68,12 @@
 [submodule "bundle/vimproc.vim"]
 	path = bundle/vimproc.vim
 	url = https://github.com/Shougo/vimproc.vim.git
+[submodule "bundle/vim-lua-inspect"]
+	path = bundle/vim-lua-inspect
+	url = git@github.com:xolox/vim-lua-inspect.git
+[submodule "bundle/vim-lua-ftplugin"]
+	path = bundle/vim-lua-ftplugin
+	url = git@github.com:xolox/vim-lua-ftplugin.git
+[submodule "bundle/OmniCppComplete"]
+	path = bundle/OmniCppComplete
+	url = git@github.com:vim-scripts/OmniCppComplete.git
