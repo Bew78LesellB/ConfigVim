@@ -77,3 +77,9 @@
 [submodule "bundle/vimfiler.vim"]
 	path = bundle/vimfiler.vim
 	url = git@github.com:Shougo/vimfiler.vim.git
+[submodule "bundle/unite.vim"]
+	path = bundle/unite.vim
+	url = git@github.com:Shougo/unite.vim.git
+[submodule "bundle/vim-abolish"]
+	path = bundle/vim-abolish
+	url = git@github.com:tpope/vim-abolish.git

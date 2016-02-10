@@ -15,11 +15,28 @@ snippet comline "hr comment line" b
 ${0}
 endsnippet
 
-snippet cla "class .. (class)"
+snippet claexcept "class .. (Exception class)"
+class ${1:`!p snip.rv = snip.basename or "ClassName"`} : public std::exception
+{
+public:
+	${1/(\w+).*/$1/}(${2:arguments});
+	virtual ~${1/(\w+).*/$1/}() throw();
+
+public:
+	const char * what() const throw();
+
+private:
+	${0:/* data */}
+};
+endsnippet
+
+snippet clacanon "class .. (Canonical class)"
 class ${1:`!p snip.rv = snip.basename or "ClassName"`}
 {
 public:
 	${1/(\w+).*/$1/}(${2:arguments});
+	${1/(\w+).*/$1/}(${1/(\w+).*/$1/} const & other);
+	${1/(\w+).*/$1/} & operator=(${1/(\w+).*/$1/} const & other);
 	virtual ~${1/(\w+).*/$1/}();
 
 protected:
@@ -45,7 +62,7 @@ snippet ns "namespace .. (namespace)"
 namespace${1/.+/ /m}${1:`!p snip.rv = snip.basename or "name"`}
 {
 	${VISUAL}${0}
-}${1/.+/ \/* /m}$1${1/.+/ *\/ /m}
+}
 endsnippet
 
 snippet map "std::map (map)"

@@ -18,6 +18,7 @@ Plugin 'xolox/vim-misc'						" Auto-load Vim scripts (used by vim-easytags) (goo
 Plugin 'xolox/vim-easytags'					" ctags file managment and highlighting
 Plugin 'majutsushi/tagbar'					" sidebar with arrenged tags of the current file
 
+Plugin 'tpope/vim-abolish'					" Helpers for abbreviation, cased substitution & coercion
 Plugin 'tpope/vim-surround'					" vim-surround
 Plugin 'terryma/vim-multiple-cursors'		" multiple cursor
 Plugin 'SirVer/ultisnips'					" snippets
@@ -28,6 +29,9 @@ Plugin 'szw/vim-ctrlspace'					" Control your space (buffers/tags/workspaces/etc
 Plugin 'superbrothers/vim-vimperator'
 
 Plugin 'Bew78LesellB/vim-colors-solarized'	" vim-colors-solarized - favorite colorsheme <3
+Plugin 'NLKNguyen/papercolor-theme'
+
+Plugin 'Shougo/unite.vim'
 
 " File explorer
 Plugin 'Shougo/vimfiler.vim'
@@ -165,10 +169,6 @@ nnoremap <M-r>	:set relativenumber! relativenumber?<CR>
 " Show highlight infos
 nmap <F2> :echom "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">" <CR>
 
-" Goto prev/next location
-nnoremap ]l :lnext<cr>
-nnoremap [l :lprev<cr>
-
 " Toggle PASTE mode
 nnoremap <M-p> :set paste! paste?<CR>
 
@@ -177,6 +177,21 @@ nnoremap <M-p> :set paste! paste?<CR>
 vnoremap <M-c> :'<,'>w !xclip -in -selection clipboard<cr>
 " > paste in normal mode
 nnoremap <silent> <M-v> :r !xclip -out -selection clipboard<cr>
+
+" ask for sudo passwd and save the file
+cnoremap w!! w !sudo tee % >/dev/null
+
+
+" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first make a new undo,
+" so that you can undo CTRL-U after inserting a line break.
+inoremap <C-U> <C-G>u<C-U>
+
+" logical undo
+nnoremap U <C-r>
+
+"
+" OPTIONS
+"
 
 " This must be first, because it changes other options as a side effect.
 set nocompatible
@@ -231,15 +246,6 @@ set wildignore+=tags
 """" > Use register "+ for X11 clipboard
 "set clipboard=unnamed
 
-
-
-" ask for sudo passwd and save the file
-cnoremap w!! w !sudo tee % >/dev/null
-
-
-" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
-" so that you can undo CTRL-U after inserting a line break.
-inoremap <C-U> <C-G>u<C-U>
 
 if has('mouse')
 	set mouse=nv " normal & visual
