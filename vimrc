@@ -42,8 +42,6 @@ Plugin 'xterm-color-table.vim'				" Provide some commands to display all cterm c
 Plugin 'Shougo/vimshell.vim'
 Plugin 'Shougo/vimproc.vim'					" Helper for vimshell
 
-"Plugin 'tpope/vim-fugitive'					" vim-fugitive
-
 " C / CPP
 "Plugin 'vim-scripts/OmniCppComplete'		" CPP contextual completion
 Plugin 'octol/vim-cpp-enhanced-highlight'	" Better highlight
@@ -52,6 +50,8 @@ Plugin 'octol/vim-cpp-enhanced-highlight'	" Better highlight
 " Lua
 Plugin 'xolox/vim-lua-ftplugin'				" Advanced lua completion
 "Plugin 'xolox/vim-lua-inspect'				" Advanced lua semantic analysis (too heavy)
+
+Plugin 'ryanoasis/vim-devicons'
 
 filetype indent on
 
@@ -89,7 +89,7 @@ call s:loadConfigDir("plugins")
 " Disable every gvim gui stuff
 if (has("gui"))
 	set guioptions=
-	set guifont=Font\ Awesome\ 11
+	set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 11
 endif
 
 " Always move in normal mode
