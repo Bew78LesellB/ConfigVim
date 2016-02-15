@@ -51,6 +51,9 @@ Plugin 'octol/vim-cpp-enhanced-highlight'	" Better highlight
 Plugin 'xolox/vim-lua-ftplugin'				" Advanced lua completion
 "Plugin 'xolox/vim-lua-inspect'				" Advanced lua semantic analysis (too heavy)
 
+" OCaml
+Plugin 'the-lambda-church/merlin'			" Context sensitive completion for OCaml + errors + type infos + source browsing
+
 Plugin 'ryanoasis/vim-devicons'
 
 filetype indent on
@@ -147,6 +150,8 @@ nnoremap <silent> § :noh \| echo "Search cleared"<cr>
 " Goto tabs
 nnoremap <M-J> gT
 nnoremap <M-K> gt
+inoremap <M-J> <esc>gT
+inoremap <M-K> <esc>gt
 
 " Insert a tabulation (Alt + i) in insert mode
 set <M-i>=é

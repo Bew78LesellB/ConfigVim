@@ -15,6 +15,8 @@ snippet comline "hr comment line" b
 ${0}
 endsnippet
 
+###########################################################################
+
 snippet claexcept "class .. (Exception class)"
 class ${1:`!p snip.rv = snip.basename or "ClassName"`} : public std::exception
 {
@@ -30,6 +32,8 @@ private:
 };
 endsnippet
 
+###########################################################################
+
 snippet clacanon "class .. (Canonical class)"
 class ${1:`!p snip.rv = snip.basename or "ClassName"`}
 {
@@ -44,12 +48,23 @@ protected:
 };
 endsnippet
 
+snippet enumcla "enum class" b
+enum class ${1:EnumClass} : ${2:int}
+{
+	${VISUAL}${3}
+};
+endsnippet
+
+###########################################################################
+
 snippet ctor "Constructor implementation"
 ${1:`!p snip.rv = snip.basename or "ClassName"`}::$1(${2})${3: :}
 {${4}
 }
 ${0}
 endsnippet
+
+###########################################################################
 
 snippet dtor "Destructor implementation"
 ${1:`!p snip.rv = snip.basename or "ClassName"`}::~$1()
@@ -58,6 +73,8 @@ ${1:`!p snip.rv = snip.basename or "ClassName"`}::~$1()
 ${0}
 endsnippet
 
+###########################################################################
+
 snippet ns "namespace .. (namespace)"
 namespace${1/.+/ /m}${1:`!p snip.rv = snip.basename or "name"`}
 {
@@ -65,24 +82,36 @@ namespace${1/.+/ /m}${1:`!p snip.rv = snip.basename or "name"`}
 }
 endsnippet
 
+###########################################################################
+
 snippet map "std::map (map)"
 std::map<${1:key}, ${2:value}> map$0;
 endsnippet
+
+###########################################################################
 
 snippet vector "std::vector (v)"
 std::vector<${1:char}> v$0;
 endsnippet
 
+###########################################################################
+
 snippet tp "template <typename ..> (template)"
 template <typename ${1:_InputIter}>
 endsnippet
+
+###########################################################################
 
 snippet cout "std::cout std::endl"
 std::cout << ${1} << std::endl;${0}
 endsnippet
 
+###########################################################################
+
 snippet incio "include iostream" b
 #include <iostream>
 endsnippet
+
+###########################################################################
 
 # vim:ft=snippets:

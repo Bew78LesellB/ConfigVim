@@ -18,3 +18,4 @@ endfunction
 " Escape and go back to Normal mode, and still be able to operate on all the
 " cursors.
 let g:multi_cursor_exit_from_insert_mode = 0
+let g:multi_cursor_exit_from_visual_mode = 0

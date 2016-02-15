@@ -7,7 +7,7 @@ let g:lightline = {
 			\   'tabline': 0,
 			\ },
 			\ 'active': {
-			\   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename', 'modified' ] ],
+			\   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename', 'readonly', 'modified' ] ],
 			\   'right': [ [ 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
 			\ },
 			\ 'component': {
