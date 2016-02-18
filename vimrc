@@ -48,8 +48,11 @@ Plugin 'octol/vim-cpp-enhanced-highlight'	" Better highlight
 "Plugin 'Rip-Rip/clang_complete'			" Advanced completion using clang
 
 " Lua
-Plugin 'xolox/vim-lua-ftplugin'				" Advanced lua completion
+"Plugin 'xolox/vim-lua-ftplugin'				" Package lua completion (it disable the '"' double completion of delimitMate...)
 "Plugin 'xolox/vim-lua-inspect'				" Advanced lua semantic analysis (too heavy)
+
+" ASM
+Plugin 'Shirk/vim-gas'						" Advanced syntax highlighting for GNU Asm
 
 " OCaml
 Plugin 'the-lambda-church/merlin'			" Context sensitive completion for OCaml + errors + type infos + source browsing

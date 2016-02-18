@@ -89,3 +89,6 @@
 [submodule "bundle/merlin"]
 	path = bundle/merlin
 	url = git@github.com:the-lambda-church/merlin.git
+[submodule "bundle/vim-gas"]
+	path = bundle/vim-gas
+	url = git@github.com:Shirk/vim-gas.git

@@ -7,12 +7,15 @@ let g:lightline = {
 			\   'tabline': 0,
 			\ },
 			\ 'active': {
-			\   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename', 'readonly', 'modified' ] ],
+			\   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename', 'readonly', 'modified', 'syntastic'] ],
 			\   'right': [ [ 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
 			\ },
 			\ 'component': {
 			\   'readonly': '%{&readonly ? "" : ""}',
 			\   'modified': '%{&modified ? "+" : ""}',
+			\ },
+			\ 'component_expand': {
+			\   'syntastic': 'SyntasticStatuslineFlag',
 			\ },
 			\ 'component_function': {
 			\   'filename': 'LightLineFilename',
@@ -69,10 +72,16 @@ function! LightLineMode()
 endfunction
 
 let g:tagbar_status_func = 'TagbarStatusFunc'
-
 function! TagbarStatusFunc(current, sort, fname, ...) abort
 	let g:lightline.fname = a:fname
 	return lightline#statusline(0)
 endfunction
+
+" TODO: study, why is it a need to update the statusline
+augroup AutoSyntastic
+	autocmd!
+	autocmd BufWritePost * call lightline#update()
+augroup END
+
 
 

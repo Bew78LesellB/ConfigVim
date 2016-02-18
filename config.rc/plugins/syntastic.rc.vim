@@ -1,15 +1,25 @@
 " ==== Syntastic config ====
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 " do not check synthax when closing the buffer window
 let g:syntastic_check_on_wq = 0
 
+" Populate Location List
+
+let g:syntastic_always_populate_loc_list = 1
+
+"When set to 2 the error window will be automatically closed when no errors are
+"  detected, but not opened automatically. >
+let g:syntastic_auto_loc_list = 2
 let g:syntastic_loc_list_height = 5
 
-let g:syntastic_error_symbol = "✗"
+" Symbols
+
+"let g:syntastic_error_symbol = "✗❯"
+"let g:syntastic_error_symbol = "✗"
+"let g:syntastic_error_symbol = "✗▸"
+let g:syntastic_error_symbol = "✗▹"
 " ♢ ☢ ☠ ☛ ⚠
-let g:syntastic_warning_symbol = "✗"
+let g:syntastic_warning_symbol = "✗▹"
 
 " CPP
 let g:syntastic_cpp_check_header = 1
