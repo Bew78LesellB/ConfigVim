@@ -22,6 +22,7 @@ Plugin 'tpope/vim-abolish'					" Helpers for abbreviation, cased substitution & 
 Plugin 'tpope/vim-surround'					" vim-surround
 Plugin 'terryma/vim-multiple-cursors'		" multiple cursor
 Plugin 'SirVer/ultisnips'					" snippets
+Plugin 'junegunn/vim-easy-align'			" An advanced, easy-to-use Vim alignment plugin.
 
 Plugin 'Shougo/neocomplete.vim'				" neocomplete - as-you-type auto-complete
 Plugin 'szw/vim-ctrlspace'					" Control your space (buffers/tags/workspaces/etc..)
@@ -134,6 +135,11 @@ hi TabLine term=NONE cterm=NONE ctermfg=230 ctermbg=239 guifg=#fdf6e3 guibg=#586
 hi TabLineFill term=reverse cterm=reverse ctermfg=187 ctermbg=244 guibg=Grey
 
 
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 " Map the Menu key to do nothing (default will Escape..)
 "set <F7>=[29~

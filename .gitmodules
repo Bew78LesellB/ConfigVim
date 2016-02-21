@@ -95,3 +95,6 @@
 [submodule "bundle/omlet.vim"]
 	path = bundle/omlet.vim
 	url = git@github.com:vim-scripts/omlet.vim.git
+[submodule "bundle/vim-easy-align"]
+	path = bundle/vim-easy-align
+	url = git@github.com:junegunn/vim-easy-align.git
