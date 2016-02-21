@@ -92,3 +92,6 @@
 [submodule "bundle/vim-gas"]
 	path = bundle/vim-gas
 	url = git@github.com:Shirk/vim-gas.git
+[submodule "bundle/omlet.vim"]
+	path = bundle/omlet.vim
+	url = git@github.com:vim-scripts/omlet.vim.git

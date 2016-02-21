@@ -56,6 +56,7 @@ Plugin 'Shirk/vim-gas'						" Advanced syntax highlighting for GNU Asm
 
 " OCaml
 Plugin 'the-lambda-church/merlin'			" Context sensitive completion for OCaml + errors + type infos + source browsing
+Plugin 'vim-scripts/omlet.vim'				" This mode offers is automatic indentation and keyword highlighting
 
 Plugin 'ryanoasis/vim-devicons'
 
