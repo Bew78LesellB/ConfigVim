@@ -44,7 +44,8 @@ function! LightLineFilename()
 endfunction
 
 function! LightLineFileformat()
-	return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
+	"return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
+	return winwidth(0) > 70 ? (WebDevIconsGetFileFormatSymbol()) : ''
 endfunction
 
 function! LightLineFiletype()
@@ -77,7 +78,7 @@ function! TagbarStatusFunc(current, sort, fname, ...) abort
 	return lightline#statusline(0)
 endfunction
 
-" TODO: study, why is it a need to update the statusline
+" TODO: study, why is it a need to update the statusline like this..
 augroup AutoSyntastic
 	autocmd!
 	autocmd BufWritePost * call lightline#update()
