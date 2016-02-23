@@ -266,9 +266,16 @@ set foldmethod=syntax
 set foldcolumn=2
 set nofoldenable " leave fold open on file open
 
+""" Format options
+
 " Disable auto wrap comment automatically
 set formatoptions-=c
 set formatoptions-=a
+
+" Enable correct comment join (remove comment start)
+set formatoptions+=j
+
+"""
 
 " search
 set wildignore+=*.o
