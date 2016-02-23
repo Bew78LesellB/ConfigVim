@@ -78,14 +78,37 @@ set laststatus=2
 
 
 " Config Helper - TODO: convert as a vim plugin (customizable)
-function! s:loadConfigFile(path)
+if has('win32') || has ('win64')
+	let $VIMHOME = $VIM."/vimfiles"
+else
+	let $VIMHOME = $HOME."/.vim"
+endif
+
+function! s:sourceFile(path)
 	if filereadable(a:path)
 		exec "source " . a:path
+		let s:fileLoaded = 1
+	endif
+endfunction
+
+function! s:loadConfigFile(path)
+	let s:fileLoaded = 0
+	call s:sourceFile(a:path)
+	if s:fileLoaded == 1
+		return
+	endif
+	call s:sourceFile($VIMHOME . "/config.rc/" . a:path)
+	if s:fileLoaded == 1
+		return
+	endif
+	call s:sourceFile($VIMHOME . "/config.rc/" . a:path . ".rc.vim")
+	if s:fileLoaded == 1
+		return
 	endif
 endfunction
 
 function! s:loadConfigDir(dirpath)
-	for filepath in split(globpath("~/.vim/config.rc/" . a:dirpath, "*.vim"), "\n")
+	for filepath in split(globpath("~/.vim/config.rc/" . a:dirpath, "*.rc.vim"), "\n")
 		call s:loadConfigFile(filepath)
 	endfor
 endfunction
@@ -214,6 +237,9 @@ set nocompatible
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
+" Activate syntax highlighting
+syntax on
+
 set backup		" keep a backup file
 
 set history=99		" keep 99 lines of command line history
@@ -266,24 +292,7 @@ if has('mouse')
 	set mouse=nv " normal & visual
 endif
 
-" Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern.
-if &t_Co > 2 || has("gui_running")
-	syntax on
-endif
-
-" For all text files set 'textwidth' to 78 characters.
-autocmd FileType text setlocal textwidth=80
-
-" When editing a file, always jump to the last known cursor position.
-" Don't do it when the position is invalid or when inside an event handler
-" (happens when dropping a file on gvim).
-" Also don't do it when the mark is in the first line, that is the default
-" position when opening a file.
-autocmd BufReadPost *
-			\ if line("'\"") > 1 && line("'\"") <= line("$") |
-			\	exe "normal! g`\"" |
-			\ endif
+call s:loadConfigFile("autocmd")
 
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.

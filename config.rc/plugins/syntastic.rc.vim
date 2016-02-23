@@ -1,6 +1,11 @@
 " ==== Syntastic config ====
-let g:syntastic_check_on_open = 1
-" do not check synthax when closing the buffer window
+
+" Put Syntastic in passive mode, we run a check
+" in custom autocmd events
+let g:syntastic_check_on_open = 0
+let g:syntastic_mode_map = {
+			\ "mode": "passive",
+			\ }
 let g:syntastic_check_on_wq = 0
 
 " Populate Location List
