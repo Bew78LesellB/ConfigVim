@@ -261,6 +261,14 @@ set sidescroll=1				" scroll chars one by one
 set wildmenu					" show list instead of just completing
 set wildmode=longest:full,full	" command <Tab> completion, list matches, then longest common part, then all.
 
+" setup default fold
+set foldmethod=syntax
+set foldcolumn=2
+set nofoldenable " leave fold open on file open
+
+" Disable auto wrap comment automatically
+set formatoptions-=c
+set formatoptions-=a
 
 " search
 set wildignore+=*.o
