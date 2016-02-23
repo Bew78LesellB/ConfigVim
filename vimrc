@@ -29,7 +29,7 @@ Plugin 'szw/vim-ctrlspace'					" Control your space (buffers/tags/workspaces/etc
 
 Plugin 'superbrothers/vim-vimperator'
 
-Plugin 'Bew78LesellB/vim-colors-solarized'	" vim-colors-solarized - favorite colorsheme <3
+Plugin 'Bew78LesellB/vim-colors-solarized'	" vim-colors-solarized - favorite colorscheme <3
 Plugin 'NLKNguyen/papercolor-theme'
 
 Plugin 'Shougo/unite.vim'
@@ -44,6 +44,7 @@ Plugin 'Shougo/vimshell.vim'
 Plugin 'Shougo/vimproc.vim'					" Helper for vimshell
 
 " C / CPP
+"TODO: use YouCompleteMe
 "Plugin 'vim-scripts/OmniCppComplete'		" CPP contextual completion
 Plugin 'octol/vim-cpp-enhanced-highlight'	" Better highlight
 "Plugin 'Rip-Rip/clang_complete'			" Advanced completion using clang
@@ -84,25 +85,27 @@ else
 	let $VIMHOME = $HOME."/.vim"
 endif
 
+" Configuration file loader
+
+let $TRUE = 1
+let $FALSE = 0
+
 function! s:sourceFile(path)
 	if filereadable(a:path)
 		exec "source " . a:path
-		let s:fileLoaded = 1
+		return $TRUE
 	endif
+	return $FALSE
 endfunction
 
 function! s:loadConfigFile(path)
-	let s:fileLoaded = 0
-	call s:sourceFile(a:path)
-	if s:fileLoaded == 1
+	if s:sourceFile(a:path) == $TRUE
 		return
 	endif
-	call s:sourceFile($VIMHOME . "/config.rc/" . a:path)
-	if s:fileLoaded == 1
+	if s:sourceFile($VIMHOME . "/config.rc/" . a:path) == $TRUE
 		return
 	endif
-	call s:sourceFile($VIMHOME . "/config.rc/" . a:path . ".rc.vim")
-	if s:fileLoaded == 1
+	if s:sourceFile($VIMHOME . "/config.rc/" . a:path . ".rc.vim")
 		return
 	endif
 endfunction
@@ -113,6 +116,8 @@ function! s:loadConfigDir(dirpath)
 	endfor
 endfunction
 
+
+"""""""""""""""""""""""""""""""""
 
 call s:loadConfigDir("plugins")
 
@@ -138,24 +143,6 @@ inoremap <C-s> <Esc>:w<cr>
 
 " Toggle wrap
 nnoremap <M-w> :set wrap! wrap?<cr>
-
-
-"## Setting colorscheme
-set t_Co=256
-let g:solarized_termcolors = 256
-syntax on
-colorscheme solarized
-
-set background=dark
-if (!has("gui_running"))
-	set background=light " this is weird but it fixes dark color...
-endif
-
-
-" Nice colors for TabLine
-hi TabLineSel term=NONE cterm=NONE ctermfg=187 ctermbg=235 guifg=#eee8d5 guibg=#073642
-hi TabLine term=NONE cterm=NONE ctermfg=230 ctermbg=239 guifg=#fdf6e3 guibg=#586e75
-hi TabLineFill term=reverse cterm=reverse ctermfg=187 ctermbg=244 guibg=Grey
 
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
@@ -237,9 +224,6 @@ set nocompatible
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-" Activate syntax highlighting
-syntax on
-
 set backup		" keep a backup file
 
 set history=99		" keep 99 lines of command line history
@@ -282,10 +266,34 @@ set wildmode=longest:full,full	" command <Tab> completion, list matches, then lo
 set wildignore+=*.o
 set wildignore+=tags
 
+" Default indentation
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set noexpandtab
+
+
 " TODO Setup X clipboard
 " > Use register "* for all yank/delete/change
 """" > Use register "+ for X11 clipboard
 "set clipboard=unnamed
+
+"## Setting colorscheme
+set t_Co=256
+let g:solarized_termcolors = 256
+syntax enable " Not 'syntax on' which overrides colorscheme
+colorscheme solarized
+
+set background=dark
+if (!has("gui_running"))
+	set background=light " this is weird but it fixes dark color...
+endif
+
+
+" Nice colors for TabLine
+hi TabLineSel term=NONE cterm=NONE ctermfg=187 ctermbg=235 guifg=#eee8d5 guibg=#073642
+hi TabLine term=NONE cterm=NONE ctermfg=230 ctermbg=239 guifg=#fdf6e3 guibg=#586e75
+hi TabLineFill term=reverse cterm=reverse ctermfg=187 ctermbg=244 guibg=Grey
 
 
 if has('mouse')
@@ -347,19 +355,3 @@ if exists("+undofile")
 endif
 
 
-"###### DEFAULT INDENTATION ######
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set noexpandtab
-
-
-" 'tabstop' changes the width of the TAB character, plain and simple.
-"
-" 'softtabstop' affects what happens when you press the <TAB> or <BS> keys. Its default value is the same as the value of 'tabstop', but when using indentation without hard tabs or mixed indentation, you want to set it to the same value as 'shiftwidth'. If 'expandtab' is unset, and 'tabstop' is different from 'softtabstop', the <TAB> key will minimize the amount of spaces inserted by using multiples of TAB characters. For instance, if 'tabstop' is 8, and the amount of consecutive space inserted is 20, two TAB characters and four spaces will be used.
-"
-" 'shiftwidth' affects what happens when you press >>, << or ==. It also affects how automatic indentation works. (See below.)
-"
-" 'expandtab' affects what happens when you press the <TAB> key. If 'expandtab' is set, pressing the <TAB> key will always insert 'softtabstop' amount of space characters. Otherwise, the amount of spaces inserted is minimized by using TAB characters.
-"
-" 'smarttab' affects how <TAB> key presses are interpreted depending on where the cursor is. If 'smarttab' is on, a <TAB> key inserts indentation according to 'shiftwidth' at the beginning of the line, whereas 'tabstop' and 'softtabstop' are used elsewhere. There is seldom any need to set this option, unless it is necessary to use hard TAB characters in body text or code.
