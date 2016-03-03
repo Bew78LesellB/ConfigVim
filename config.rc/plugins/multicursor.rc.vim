@@ -1,17 +1,15 @@
-" Called once right before you start selecting multiple cursors
-function! Multiple_cursors_before()
-  if exists(':NeoCompleteLock')==2
-    exe 'NeoCompleteLock'
-  endif
+" Experimentally integrate YouCompleteMe with vim-multiple-cursors, otherwise
+" the numerous Cursor events cause great slowness
+" (https://github.com/kristijanhusak/vim-multiple-cursors/issues/4)
+
+function Multiple_cursors_before()
+  let s:old_ycm_whitelist = g:ycm_filetype_whitelist
+  let g:ycm_filetype_whitelist = {}
 endfunction
 
-" Called once only when the multiple selection is canceled (default <Esc>)
-function! Multiple_cursors_after()
-  if exists(':NeoCompleteUnlock')==2
-    exe 'NeoCompleteUnlock'
-  endif
+function Multiple_cursors_after()
+  let g:ycm_filetype_whitelist = s:old_ycm_whitelist
 endfunction
-
 
 " If set to 0, then pressing the |g:multi_cursor_quit_key| in Insert mode will not
 " quit and delete all existing cursors. This is useful if you want to press
