@@ -6,61 +6,85 @@ call vundle#rc()
 
 Plugin 'gmarik/vundle'						" vundle - Plugin loader
 
-Plugin 'sjl/gundo.vim'						" undo tree
-Plugin 'Raimondi/delimitMate'				" auto insert of second ()''{}[]\"\" etc...
-Plugin 'itchyny/lightline.vim'				" statusline highlight
-Plugin 'scrooloose/syntastic'				" syntastic - as-you-type errors checker
-Plugin 'gabrielelana/vim-markdown.git'		" markdown advanced syntax highlighter and editor
+" -- Plugins Helpers
 
-Plugin 'mhinz/vim-startify'					" add a custom startup screen for vim
-
+" core
 Plugin 'xolox/vim-misc'						" Auto-load Vim scripts (used by vim-easytags) (good!)
+Plugin 'Shougo/vimproc.vim'					" Helper used by vimshell
+
+" ui
+Plugin 'Shougo/unite.vim'
+
+
+" -- Vim feature enhancer
+
+Plugin 'sjl/gundo.vim'						" undo tree
+Plugin 'szw/vim-ctrlspace'					" Control your space (buffers/tags/workspaces/etc..)
+Plugin 'tpope/vim-abolish'					" Helpers for abbreviation, cased substitution & coercion
+
+Plugin 'itchyny/lightline.vim'				" statusline builder
+
+" -- Tags managers / users
+
 Plugin 'xolox/vim-easytags'					" ctags file managment and highlighting
 Plugin 'majutsushi/tagbar'					" sidebar with arrenged tags of the current file
 
-Plugin 'tpope/vim-abolish'					" Helpers for abbreviation, cased substitution & coercion
+" -- Insert mode helpers
+
+Plugin 'Raimondi/delimitMate'				" auto insert of second ()''{}[]\"\" etc...
 Plugin 'tpope/vim-surround'					" vim-surround
+Plugin 'SirVer/ultisnips'					" Advanced snippets
+
+" -- Text refactor / formater
+
 Plugin 'terryma/vim-multiple-cursors'		" multiple cursor
-Plugin 'SirVer/ultisnips'					" snippets
 Plugin 'junegunn/vim-easy-align'			" An advanced, easy-to-use Vim alignment plugin.
 
-Plugin 'Shougo/neocomplete.vim'				" neocomplete - as-you-type auto-complete
-Plugin 'szw/vim-ctrlspace'					" Control your space (buffers/tags/workspaces/etc..)
+" -- Syntax checker
 
-Plugin 'superbrothers/vim-vimperator'
+Plugin 'scrooloose/syntastic'				" syntastic - as-you-type errors checker
+
+" -- Autocompletion
+
+Plugin 'Valloric/YouCompleteMe'				" Advanced completion engine
+"Plugin 'Shougo/neocomplete.vim'				" neocomplete - as-you-type auto-complete
+
+" -- UI
+
+Plugin 'mhinz/vim-startify'					" add a custom startup screen for vim
 
 Plugin 'Bew78LesellB/vim-colors-solarized'	" vim-colors-solarized - favorite colorscheme <3
-Plugin 'NLKNguyen/papercolor-theme'
+"Plugin 'NLKNguyen/papercolor-theme'
+Plugin 'xterm-color-table.vim'				" Provide some commands to display all cterm colors
+Plugin 'ryanoasis/vim-devicons'
 
-Plugin 'Shougo/unite.vim'
-
-" File explorer
+" -- File explorer
 Plugin 'Shougo/vimfiler.vim'
 
-Plugin 'xterm-color-table.vim'				" Provide some commands to display all cterm colors
-
 " Vim Shell
-Plugin 'Shougo/vimshell.vim'
-Plugin 'Shougo/vimproc.vim'					" Helper for vimshell
+"Plugin 'Shougo/vimshell.vim'
+
+" -- Per language plugins
+
+" Vimperator
+Plugin 'superbrothers/vim-vimperator'
+
+" Markdown
+Plugin 'gabrielelana/vim-markdown.git'		" markdown advanced syntax highlighter and editor
 
 " C / CPP
-"TODO: use YouCompleteMe
-"Plugin 'vim-scripts/OmniCppComplete'		" CPP contextual completion
 Plugin 'octol/vim-cpp-enhanced-highlight'	" Better highlight
-"Plugin 'Rip-Rip/clang_complete'			" Advanced completion using clang
 
 " Lua
 "Plugin 'xolox/vim-lua-ftplugin'				" Package lua completion (it disable the '"' double completion of delimitMate...)
 "Plugin 'xolox/vim-lua-inspect'				" Advanced lua semantic analysis (too heavy)
 
 " ASM
-Plugin 'Shirk/vim-gas'						" Advanced syntax highlighting for GNU Asm
+"Plugin 'Shirk/vim-gas'						" Advanced syntax highlighting for GNU Asm
 
 " OCaml
 Plugin 'the-lambda-church/merlin'			" Context sensitive completion for OCaml + errors + type infos + source browsing
-Plugin 'vim-scripts/omlet.vim'				" This mode offers is automatic indentation and keyword highlighting
-
-Plugin 'ryanoasis/vim-devicons'
+Plugin 'vim-scripts/omlet.vim'				" This mode offers automatic indentation and keyword highlighting
 
 filetype indent on
 
