@@ -152,91 +152,7 @@ if (has("gui"))
 	set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 11
 endif
 
-" Always move in normal mode
-inoremap <Left> <nop>
-inoremap <Right> <nop>
-inoremap <Up> <nop>
-inoremap <Down> <nop>
-
-" Save buffer
-nnoremap <M-Space> :w<cr>
-inoremap <M-Space> <Esc>:w<cr>
-
-nnoremap <C-s> :w<cr>
-inoremap <C-s> <Esc>:w<cr>
-
-" Toggle wrap
-nnoremap <M-w> :set wrap! wrap?<cr>
-
-
-" Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap ga <Plug>(EasyAlign)
-
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
-
-" Map the Menu key to do nothing (default will Escape..)
-"set <F7>=[29~
-"noremap <F7> <nop>
-
-" Open Tagbar
-nnoremap <F8> :TagbarToggle<CR>
-
-" Launch SyntasticCheck
-nnoremap <M-m> :SyntasticCheck<CR>
-
-" Open a zsh at cwd
-nnoremap <M-z> :!zsh<cr>
-
-" Discard last search highlight
-nnoremap <silent> § :noh \| echo "Search cleared"<cr>
-
-" Goto tabs
-nnoremap <M-J> gT
-nnoremap <M-K> gt
-inoremap <M-J> <esc>gT
-inoremap <M-K> <esc>gt
-
-" Insert a tabulation (Alt + i) in insert mode
-set <M-i>=é
-inoremap <M-i> <C-V><Tab>
-nnoremap <M-i> <nop>
-
-" Indent line in normal mode
-nnoremap <Tab> mi==`i
-inoremap <Tab> <Esc>mi==`il
-
-" Indent visual selection
-vnoremap <Tab> :'<,'>normal! ==<cr>
-
-" Format the file
-nnoremap <C-f> gg=G``
-
-" Toggle relativenumber
-nnoremap <M-r>	:set relativenumber! relativenumber?<CR>
-
-" Show highlight infos
-nmap <F2> :echom "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">" <CR>
-
-" Toggle PASTE mode
-nnoremap <M-p> :set paste! paste?<CR>
-
-" Copy/Paste with system clipboard
-" > copy from visual mode
-vnoremap <M-c> :'<,'>w !xclip -in -selection clipboard<cr>
-" > paste in normal mode
-nnoremap <silent> <M-v> :r !xclip -out -selection clipboard<cr>
-
-" ask for sudo passwd and save the file
-cnoremap w!! w !sudo tee % >/dev/null
-
-
-" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first make a new undo,
-" so that you can undo CTRL-U after inserting a line break.
-inoremap <C-U> <C-G>u<C-U>
-
-" logical undo
-nnoremap U <C-r>
+call s:loadConfigFile("mappings")
 
 "
 " OPTIONS
@@ -286,9 +202,9 @@ set wildmenu					" show list instead of just completing
 set wildmode=longest:full,full	" command <Tab> completion, list matches, then longest common part, then all.
 
 " setup default fold
-set foldmethod=syntax
-set foldcolumn=2
-set nofoldenable " leave fold open on file open
+"set foldmethod=syntax
+"set foldcolumn=2
+"set nofoldenable " leave fold open on file open
 
 """ Format options
 
