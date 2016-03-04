@@ -101,3 +101,6 @@
 [submodule "bundle/YouCompleteMe"]
 	path = bundle/YouCompleteMe
 	url = https://github.com/Valloric/YouCompleteMe.git
+[submodule "bundle/vim-visualstar"]
+	path = bundle/vim-visualstar
+	url = git@github.com:thinca/vim-visualstar.git

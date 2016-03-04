@@ -21,6 +21,7 @@ Plugin 'Shougo/unite.vim'
 Plugin 'sjl/gundo.vim'						" undo tree
 Plugin 'szw/vim-ctrlspace'					" Control your space (buffers/tags/workspaces/etc..)
 Plugin 'tpope/vim-abolish'					" Helpers for abbreviation, cased substitution & coercion
+Plugin 'thinca/vim-visualstar'				" * for visualy selected text
 
 Plugin 'itchyny/lightline.vim'				" statusline builder
 
