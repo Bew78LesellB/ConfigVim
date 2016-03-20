@@ -83,6 +83,11 @@ Plugin 'octol/vim-cpp-enhanced-highlight'	" Better highlight
 " ASM
 "Plugin 'Shirk/vim-gas'						" Advanced syntax highlighting for GNU Asm
 
+" Arduino
+Plugin 'jplaut/vim-arduino-ino'				" Arduino project compilation and deploy
+Plugin 'sudar/vim-arduino-syntax'			" Arduino syntax
+Plugin 'sudar/vim-arduino-snippets'			" Arduino snippets
+
 " OCaml
 Plugin 'the-lambda-church/merlin'			" Context sensitive completion for OCaml + errors + type infos + source browsing
 Plugin 'vim-scripts/omlet.vim'				" This mode offers automatic indentation and keyword highlighting

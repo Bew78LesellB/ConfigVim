@@ -104,3 +104,12 @@
 [submodule "bundle/vim-visualstar"]
 	path = bundle/vim-visualstar
 	url = git@github.com:thinca/vim-visualstar.git
+[submodule "bundle/vim-arduino-ino"]
+	path = bundle/vim-arduino-ino
+	url = git@github.com:jplaut/vim-arduino-ino.git
+[submodule "bundle/vim-arduino-syntax"]
+	path = bundle/vim-arduino-syntax
+	url = git@github.com:sudar/vim-arduino-syntax.git
+[submodule "bundle/vim-arduino-snippets"]
+	path = bundle/vim-arduino-snippets
+	url = git@github.com:sudar/vim-arduino-snippets.git
