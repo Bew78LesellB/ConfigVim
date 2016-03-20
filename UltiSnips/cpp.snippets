@@ -16,6 +16,16 @@ endsnippet
 
 ###########################################################################
 
+snippet class "class .."
+class ${1:`!p snip.rv = snip.basename or "ClassName"`}
+{
+${1:public}:
+	${0}
+};
+endsnippet
+
+###########################################################################
+
 snippet claexcept "class .. (Exception class)"
 class ${1:`!p snip.rv = snip.basename or "ClassName"`} : public std::exception
 {

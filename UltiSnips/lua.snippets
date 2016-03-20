@@ -32,7 +32,7 @@ for ${1:i}=${2:first},${3:last}${4/^..*/(?0:,:)/}${4:step} do
 end
 endsnippet
 
-snippet local "local x = 1"
+snippet loc "local x = 1"
 local ${1:x} = ${0:1}
 endsnippet
 
@@ -50,8 +50,13 @@ endsnippet
 
 snippet section "Comment Section" b
 ${1}
--- ${2:${VISUAL}}
+-- ${2:${VISUAL/^-- //}}
 $1${0}
+endsnippet
+
+snippet header "Comment Header" b
+-- ${1:${VISUAL:Comment/^-- //}}
+${2}${0}
 endsnippet
 
 # vim:ft=snippets:

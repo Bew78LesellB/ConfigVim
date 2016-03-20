@@ -21,14 +21,14 @@ endsnippet
 
 snippet matchl "pattern match on a list"
 match ${1:list} with
-| [] -> ${2:()}
-| x::xs -> ${3:()}
+  | [] -> ${2:()}
+  | x::xs -> ${3:()}
 endsnippet
 
 snippet matcho "pattern match on an option type"
 match ${1:x} with
-| Some(${2:y}) -> ${3:()}
-| None -> ${4:()}
+  | Some(${2:y}) -> ${3:()}
+  | None -> ${4:()}
 endsnippet
 
 snippet fun "anonymous function"
@@ -80,7 +80,7 @@ endsnippet
 
 snippet Match "match"
 match ${1:(* e1 *)} with
-| ${2:p} -> ${3:e2}
+  | ${2:p} -> ${3:e2}
 endsnippet
 
 snippet class "class"
