@@ -9,13 +9,16 @@ inoremap <Down> <nop>
 " Save buffer
 nnoremap <M-Space> :w<cr>
 inoremap <M-Space> <Esc>:w<cr>
+nnoremap <M-s> :w<cr>
+inoremap <M-s> <Esc>:w<cr>
 
 " I don't use theses, but it may be useful when
 " <M-Space> is not available (on some terminal)
 nnoremap <C-s> :w<cr>
 inoremap <C-s> <Esc>:w<cr>
 
-" -- Toggle
+"-- Toggle
+"------------------------------------------------------------------
 
 " wrap
 nnoremap <M-w> :set wrap! wrap?<cr>
@@ -36,7 +39,8 @@ nnoremap <F8> :TagbarToggle<CR>
 " Discard last search highlight
 nnoremap <silent> § :noh \| echo "Search cleared"<cr>
 
-" -- Navigation
+"-- Navigation
+"------------------------------------------------------------------
 
 " Goto tabs
 nnoremap <M-J> gT
@@ -47,7 +51,14 @@ inoremap <M-K> <esc>gt
 " Open a zsh at cwd
 nnoremap <M-z> :!zsh<cr>
 
-" -- Insert helper
+"-- Normal helper
+"------------------------------------------------------------------
+
+nnoremap <M-o> o<esc>
+nnoremap <M-O> O<esc>
+
+"-- Insert helper
+"------------------------------------------------------------------
 
 " Insert a tabulation (Alt + i) in insert mode
 set <M-i>=é
@@ -64,12 +75,14 @@ inoremap <Tab> <Esc>mi==`il
 " note that '<,'> is automatically inserted when pressing ':' in visual mode
 vnoremap <Tab> :normal! ==<cr>
 
-" -- Global code Manipulation
+"-- Global code Manipulation
+"------------------------------------------------------------------
 
 " Format the file
 nnoremap <C-f> gg=G``
 
-" -- Vim dev helpers
+"-- Vim dev helpers
+"------------------------------------------------------------------
 
 " Show highlight infos
 nmap <F2> :echom "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">" <CR>
@@ -77,7 +90,8 @@ nmap <F2> :echom "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> tran
 " Toggle PASTE mode
 nnoremap <M-p> :set paste! paste?<CR>
 
-" -- OS integration
+"-- OS integration
+"------------------------------------------------------------------
 
 " Copy/Paste with system clipboard
 " > copy from visual mode
