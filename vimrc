@@ -107,6 +107,15 @@ let mapleader = ","
 " always show the statusline
 set laststatus=2
 
+" Change color of cursor in insert/normal modes
+"
+" Start insert mode
+let &t_SI = "]12;#009688\007"
+" Start replace mode
+let &t_SR = "]12;#ff5722\007"
+
+let &t_EI = "]12;white\007"
+
 
 " Config Helper - TODO: convert as a vim plugin (customizable)
 if has('win32') || has ('win64')
