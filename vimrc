@@ -201,8 +201,11 @@ set hidden
 
 set timeoutlen=300
 
-" Auto indent the next lie
+" Auto indent the next line
 set autoindent
+
+" Completion popup
+set pumheight=20
 
 " Show non visible chars (tabs/trailing spaces/too long lines/etc..)
 set list
