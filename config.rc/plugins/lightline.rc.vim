@@ -7,29 +7,32 @@ let g:lightline = {
 			\   'tabline': 0,
 			\ },
 			\ 'active': {
-			\   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename', 'readonly', 'modified', 'syntastic'] ],
-			\   'right': [ [ 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
+			\   'left': [ [ 'mode', 'paste' ], [ 'filename', 'readonly', 'modified' ] ],
+			\   'right': [ [ 'lineinfo' ], ['percent'], [ 'filetype' ] ],
+			\ },
+			\ 'inactive': {
+			\   'left':  [ [], [ 'relativepath', 'readonly', 'modified'] ],
+			\   'right': [ [], ['percent'] ],
 			\ },
 			\ 'component': {
 			\   'readonly': '%{&readonly ? "" : ""}',
 			\   'modified': '%{&modified ? "+" : ""}',
 			\ },
-			\ 'component_expand': {
-			\   'syntastic': 'SyntasticStatuslineFlag',
+			\ 'mode_map': {
+			\   'n': 'N', 'i': 'I', 'R': 'R',
+			\   'v': 'V', 'V': 'VL', "\<C-v>": 'VB',
+			\   's': 'S', 'S': 'SL', "\<C-s>": 'SB',
+			\   'c': 'C', 't': 'T',
+			\   '?': '?',
 			\ },
 			\ 'component_function': {
 			\   'filename': 'LightLineFilename',
-			\   'fileformat': 'LightLineFileformat',
 			\   'filetype': 'LightLineFiletype',
-			\   'fileencoding': 'LightLineFileencoding',
 			\   'percent': 'LightLinePercent',
 			\   'mode': 'LightLineMode',
 			\ },
-			\ 'component_type': {
-			\   'syntastic': 'error',
-			\ },
 			\ 'separator': { 'left': '', 'right': '' },
-			\ 'subseparator': { 'left': '', 'right': '' }
+			\ 'subseparator': { 'left': '', 'right': '' },
 			\ }
 
 function! LightLineFilename()
@@ -43,17 +46,8 @@ function! LightLineFilename()
 				\ ('' != fname ? fname : '[No Name]')
 endfunction
 
-function! LightLineFileformat()
-	"return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
-	return winwidth(0) > 70 ? (WebDevIconsGetFileFormatSymbol()) : ''
-endfunction
-
 function! LightLineFiletype()
 	return strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft'
-endfunction
-
-function! LightLineFileencoding()
-	return winwidth(0) > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
 endfunction
 
 function! LightLinePercent()
@@ -78,3 +72,13 @@ function! TagbarStatusFunc(current, sort, fname, ...) abort
 	return lightline#statusline(0)
 endfunction
 
+"" Syntastic components
+"function! LightLineSyntasticError()
+"	let g:syntastic_stl_format = '%E{Err: %fe #%e}'
+"	return SyntasticStatuslineFlag()
+"endfunction
+"
+"function! LightLineSyntasticWarning()
+"	let g:syntastic_stl_format = '%W{Warn: %fw #%w}'
+"	return SyntasticStatuslineFlag()
+"endfunction
