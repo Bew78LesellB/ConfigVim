@@ -209,7 +209,7 @@ set pumheight=20
 
 " Show non visible chars (tabs/trailing spaces/too long lines/etc..)
 set list
-set listchars=tab:·\ ,trail:@,precedes:<,extends:>,nbsp:. " how to show differents categories of invisible chars
+set listchars=tab:·\ ,trail:@,precedes:<,extends:> " how to show differents categories of invisible chars
 
 set scrolloff=3					" minimum lines to keep above and below cursor
 set sidescrolloff=16			" minimum chars to keep on the left/right of the cursor
@@ -217,7 +217,7 @@ set sidescroll=1				" scroll chars one by one
 
 " Command line options
 set wildmenu					" show list instead of just completing
-set wildmode=longest:full,full	" command <Tab> completion, list matches, then longest common part, then all.
+set wildmode=longest:full,full	" commandline <Tab> completion, list matches, then longest common part, then all.
 
 " setup default fold
 "set foldmethod=syntax
