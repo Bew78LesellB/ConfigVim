@@ -264,9 +264,23 @@ endif
 
 
 " Nice colors for TabLine
-hi TabLineSel term=NONE cterm=NONE ctermfg=187 ctermbg=235 guifg=#eee8d5 guibg=#073642
-hi TabLine term=NONE cterm=NONE ctermfg=230 ctermbg=239 guifg=#fdf6e3 guibg=#586e75
-hi TabLineFill term=reverse cterm=reverse ctermfg=187 ctermbg=244 guibg=Grey
+hi TabLineSel  cterm=NONE    ctermfg=187 ctermbg=235
+hi TabLine     cterm=NONE    ctermfg=230 ctermbg=239
+hi TabLineFill cterm=reverse ctermfg=187 ctermbg=244
+
+hi clear Visual Todo
+hi Visual  ctermbg=238
+" We need the ctermbg=NONE at the end, I don't know why...
+hi! Todo cterm=bold ctermfg=11 ctermbg=NONE
+
+hi clear SyntasticWarningSign SyntasticErrorSign SignColumn
+hi SyntasticErrorSign ctermfg=1
+hi SyntasticWarningSign ctermfg=11
+hi SignColumn ctermbg=234
+
+
+
+
 
 
 if has('mouse')
