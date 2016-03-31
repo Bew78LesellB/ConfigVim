@@ -6,6 +6,21 @@ inoremap <Right> <nop>
 inoremap <Up> <nop>
 inoremap <Down> <nop>
 
+" Easy short navigation in insert mode
+inoremap <C-h> <C-o>h
+inoremap <C-j> <C-o>j
+inoremap <C-k> <C-o>k
+inoremap <C-l> <C-o>l
+
+" Easy windows navigation
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" Redraw
+nnoremap <C-m> <C-l>
+
 " Save buffer
 nnoremap <M-Space> :w<cr>
 inoremap <M-Space> <Esc>:w<cr>
