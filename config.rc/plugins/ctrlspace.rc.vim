@@ -4,8 +4,10 @@ let g:CtrlSpaceLoadLastWorkspaceOnStart = 0
 
 "  
 let g:CtrlSpaceSymbols = {
-			\ "CS": "",
+			\ "CS": "",
 			\ "All": "",
-			\ "WLoad": "",
-			\ "WSave": "",
+			\ "WLoad": " ",
+			\ "WSave": " ",
+			\ "IV": "",
+			\ "IA": "",
 			\ }
