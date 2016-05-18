@@ -35,15 +35,20 @@ augroup Asm
 augroup END
 
 
-" Syntastic autocheck
-augroup AutoSyntastic
-	autocmd!
-	autocmd BufReadPost * call s:syntastic()
-	autocmd BufWritePost * call s:syntastic()
-augroup END
 
-function! s:syntastic()
-	SyntasticCheck
-	call lightline#update()
-endfunction
+
+" Disabled stuff - need review
+"------------------------------------------------------------
+
+" Syntastic autocheck
+"augroup AutoSyntastic
+"	autocmd!
+"	autocmd BufReadPost * call s:syntastic()
+"	autocmd BufWritePost * call s:syntastic()
+"augroup END
+"
+"function! s:syntastic()
+"	SyntasticCheck
+"	call lightline#update()
+"endfunction
 
