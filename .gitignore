@@ -4,6 +4,9 @@ undo/
 swap/
 *.swp
 
+# plugins
+plugged
+
 # ignore other misc files
 viminfo
 globaltags

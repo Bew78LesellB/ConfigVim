@@ -1,66 +1,63 @@
 
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+call plug#begin('~/.vim/plugged')
 
-Plugin 'gmarik/vundle'						" vundle - Plugin loader
+"Plug 'gmarik/vundle'					" vundle - Plugin loader
 
 " -- Plugins Helpers
 
 " core
-Plugin 'xolox/vim-misc'						" Auto-load Vim scripts (used by vim-easytags) (good!)
-Plugin 'Shougo/vimproc.vim'					" Helper used by vimshell
+Plug 'xolox/vim-misc'					" Auto-load Vim scripts (used by vim-easytags) (good!)
+"Plug 'Shougo/vimproc.vim'				" Helper used by vimshell
 
 " ui
-Plugin 'Shougo/unite.vim'
+Plug 'Shougo/unite.vim'
 
 
 " -- Vim feature enhancer
 
-Plugin 'sjl/gundo.vim'						" undo tree
-Plugin 'szw/vim-ctrlspace'					" Control your space (buffers/tags/workspaces/etc..)
-Plugin 'tpope/vim-abolish'					" Helpers for abbreviation, cased substitution & coercion
-Plugin 'thinca/vim-visualstar'				" * for visualy selected text
+Plug 'sjl/gundo.vim'					" undo tree
+Plug 'szw/vim-ctrlspace'				" Control your space (buffers/tags/workspaces/etc..)
+Plug 'tpope/vim-abolish'				" Helpers for abbreviation, cased substitution & coercion
+Plug 'thinca/vim-visualstar'			" * for visualy selected text
 
-Plugin 'itchyny/lightline.vim'				" statusline builder
+Plug 'itchyny/lightline.vim'			" statusline builder
 
 " -- Tags managers / users
 
-Plugin 'xolox/vim-easytags'					" ctags file managment and highlighting
-Plugin 'majutsushi/tagbar'					" sidebar with arrenged tags of the current file
+Plug 'xolox/vim-easytags'				" ctags file managment and highlighting
+Plug 'majutsushi/tagbar'				" sidebar with arrenged tags of the current file
 
 " -- Insert mode helpers
 
-Plugin 'Raimondi/delimitMate'				" auto insert of second ()''{}[]\"\" etc...
-Plugin 'tpope/vim-surround'					" vim-surround
-Plugin 'SirVer/ultisnips'					" Advanced snippets
+Plug 'Raimondi/delimitMate'				" auto insert of second ()''{}[]\"\" etc...
+Plug 'tpope/vim-surround'				" vim-surround
+Plug 'SirVer/ultisnips'					" Advanced snippets
 
 " -- Text refactor / formater
 
-Plugin 'terryma/vim-multiple-cursors'		" multiple cursor
-Plugin 'junegunn/vim-easy-align'			" An advanced, easy-to-use Vim alignment plugin.
+"Plug 'terryma/vim-multiple-cursors'		" multiple cursor
+Plug 'junegunn/vim-easy-align'			" An advanced, easy-to-use Vim alignment plugin.
 
 " -- Syntax checker
 
-Plugin 'scrooloose/syntastic'				" syntastic - as-you-type errors checker
+Plug 'scrooloose/syntastic'				" syntastic - as-you-type errors checker
 
 " -- Autocompletion
 
-Plugin 'Valloric/YouCompleteMe'				" Advanced completion engine
-"Plugin 'Shougo/neocomplete.vim'				" neocomplete - as-you-type auto-complete
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }				" Advanced completion engine
 
 " -- UI
 
-Plugin 'mhinz/vim-startify'					" add a custom startup screen for vim
+Plug 'mhinz/vim-startify'					" add a custom startup screen for vim
 
-Plugin 'Bew78LesellB/vim-colors-solarized'	" vim-colors-solarized - favorite colorscheme <3
-"Plugin 'NLKNguyen/papercolor-theme'
-Plugin 'xterm-color-table.vim'				" Provide some commands to display all cterm colors
-Plugin 'ryanoasis/vim-devicons'
+Plug 'Bew78LesellB/vim-colors-solarized'	" vim-colors-solarized - favorite colorscheme <3
+Plug 'xterm-color-table.vim'				" Provide some commands to display all cterm colors
+Plug 'ryanoasis/vim-devicons'
 
 " -- File explorer
-Plugin 'Shougo/vimfiler.vim'
+Plug 'Shougo/vimfiler.vim'
 
 " Vim Shell
 "Plugin 'Shougo/vimshell.vim'
@@ -68,44 +65,34 @@ Plugin 'Shougo/vimfiler.vim'
 " -- Per language plugins
 
 " Vimperator
-Plugin 'superbrothers/vim-vimperator'
+Plug 'superbrothers/vim-vimperator'
 
 " Markdown
-Plugin 'gabrielelana/vim-markdown.git'		" markdown advanced syntax highlighter and editor
+Plug 'gabrielelana/vim-markdown' " markdown advanced syntax highlighter and editor
 
 " C / CPP
-Plugin 'octol/vim-cpp-enhanced-highlight'	" Better highlight
+Plug 'octol/vim-cpp-enhanced-highlight'	" Better highlight
 
 " Lua
-"Plugin 'xolox/vim-lua-ftplugin'				" Package lua completion (it disable the '"' double completion of delimitMate...)
-"Plugin 'xolox/vim-lua-inspect'				" Advanced lua semantic analysis (too heavy)
-
-" ASM
-"Plugin 'Shirk/vim-gas'						" Advanced syntax highlighting for GNU Asm
+"Plugin 'xolox/vim-lua-ftplugin'		" Package lua completion (it disable the quotes autoinsert of delimitMate...)
+"Plugin 'xolox/vim-lua-inspect'			" Advanced lua semantic analysis (too heavy)
 
 " Arduino
-Plugin 'jplaut/vim-arduino-ino'				" Arduino project compilation and deploy
-Plugin 'sudar/vim-arduino-syntax'			" Arduino syntax
-Plugin 'sudar/vim-arduino-snippets'			" Arduino snippets
+Plug 'jplaut/vim-arduino-ino'			" Arduino project compilation and deploy
+Plug 'sudar/vim-arduino-syntax'			" Arduino syntax
+Plug 'sudar/vim-arduino-snippets'		" Arduino snippets
 
 " OCaml
-Plugin 'the-lambda-church/merlin'			" Context sensitive completion for OCaml + errors + type infos + source browsing
-Plugin 'vim-scripts/omlet.vim'				" This mode offers automatic indentation and keyword highlighting
+Plug 'the-lambda-church/merlin'			" Context sensitive completion for OCaml + errors + type infos + source browsing
+Plug 'vim-scripts/omlet.vim'			" This mode offers automatic indentation and keyword highlighting
 
-filetype indent on
+call plug#end()
 
-filetype plugin on
+filetype plugin indent on
 " Enable omni completion
 set omnifunc=syntaxcomplete#Complete
 
 set encoding=utf-8
-
-" map leader definition
-let mapleader = ","
-
-
-" always show the statusline
-set laststatus=2
 
 " Change color of cursor in insert/normal modes
 "
@@ -181,6 +168,12 @@ set backspace=indent,eol,start
 
 set backup		" keep a backup file
 
+" map leader definition
+let mapleader = ","
+
+" always show the statusline
+set laststatus=2
+
 set history=99		" keep 99 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
@@ -196,6 +189,8 @@ set relativenumber
 
 set cursorline		" highlight the current line
 set cursorcolumn	" highlight the current column
+
+set display=lastline
 
 set hidden
 
