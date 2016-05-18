@@ -39,10 +39,31 @@ endsnippet
 
 ###########################################################################
 
+snippet inc "#include local" b
+#include "${1:`!p snip.rv = snip.basename or "file"`}${2:.hpp}"
+endsnippet
+
+snippet Inc "#include system" b
+#include <${1}>${0}
+endsnippet
+
+###########################################################################
+
 snippet class "class .."
 class ${1:`!p snip.rv = snip.basename or "ClassName"`}
 {
-${1:public}:
+${2:public}:
+	${0}
+};
+endsnippet
+
+snippet claiface "class .. (Interface)" b
+class ${1:`!p snip.rv = snip.basename or "ClassName"`}
+{
+public:
+	virtual ~${1/(\w+).*/$1/}() {};
+
+public:
 	${0}
 };
 endsnippet
