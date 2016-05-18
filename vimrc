@@ -279,7 +279,10 @@ hi SyntasticWarningSign ctermfg=11
 hi SignColumn ctermbg=234
 
 
-
+hi clear rubyInstanceVariable
+hi rubyInstanceVariable ctermfg=33
+hi clear rubySymbol
+hi rubySymbol ctermfg=208
 
 
 
