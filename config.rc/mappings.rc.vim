@@ -7,10 +7,8 @@ inoremap <Up> <nop>
 inoremap <Down> <nop>
 
 " Easy short navigation in insert mode
-inoremap <C-h> <C-o>h
-inoremap <C-j> <C-o>j
-inoremap <C-k> <C-o>k
-inoremap <C-l> <C-o>l
+inoremap <C-h> <Left>
+inoremap <C-l> <Right>
 
 " Easy windows navigation
 nnoremap <C-h> <C-w>h
@@ -42,11 +40,11 @@ nnoremap <M-w> :set wrap! wrap?<cr>
 nnoremap <M-r>	:set relativenumber! relativenumber?<CR>
 
 
-" Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign in visual mode (e.g. vipgea)
+xmap gea <Plug>(EasyAlign)
 
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. geaip)
+nmap gea <Plug>(EasyAlign)
 
 " Open Tagbar
 nnoremap <F8> :TagbarToggle<CR>
@@ -78,6 +76,9 @@ nnoremap <M-O> O<esc>
 " Insert a tabulation (Alt + i) in insert mode
 set <M-i>=é
 inoremap <M-i> <C-V><Tab>
+
+inoremap <M-o> <C-o>o
+inoremap <M-O> <C-o>O
 
 " Disbale <M-i> in normal mode, as it hangs the terminal
 nnoremap <M-i> <nop>
