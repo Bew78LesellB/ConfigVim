@@ -1,11 +1,12 @@
 setlocal nonumber
 setlocal norelativenumber
-setlocal nomod
+setlocal nomodifiable
 setlocal nolist
 
 setlocal tabstop=8
 setlocal wrapmargin=4
 setlocal breakindent
+setlocal incsearch
 
 
 
