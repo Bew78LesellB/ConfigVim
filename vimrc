@@ -26,7 +26,9 @@ Plug 'itchyny/lightline.vim'			" statusline builder
 
 " -- Tags managers / users
 
-Plug 'xolox/vim-easytags'				" ctags file managment and highlighting
+" Temporary version of easytags to handle Universal CTags as a correct version
+Plug 'Wraul/vim-easytags', { 'branch' : 'fix-universal-detection'}	" ctags file managment and highlighting
+"Plug 'xolox/vim-easytags'				" ctags file managment and highlighting
 Plug 'majutsushi/tagbar'				" sidebar with arrenged tags of the current file
 
 " -- Insert mode helpers
@@ -266,11 +268,13 @@ hi TabLineFill cterm=reverse ctermfg=187 ctermbg=244
 hi clear Visual Todo
 hi Visual  ctermbg=238
 " We need the ctermbg=NONE at the end, I don't know why...
-hi! Todo cterm=bold ctermfg=11 ctermbg=NONE
+hi Todo cterm=bold ctermfg=11 ctermbg=NONE
 
-hi clear SyntasticWarningSign SyntasticErrorSign SignColumn
+hi clear SyntasticWarningSign SyntasticErrorSign
 hi SyntasticErrorSign ctermfg=1
 hi SyntasticWarningSign ctermfg=11
+
+hi clear SignColumn
 hi SignColumn ctermbg=234
 
 
