@@ -1,13 +1,15 @@
 
 
 " match 'myfunc()' and 'myfunc   ()'
-syn match luaUserFunc "\<[a-zA-Z][a-zA-Z0-9]*\>\ze\s\{-}("
-
-" match 'MyClass' but not 'MYClass' or 'myClass'
-syn match luaClass "\<\u\l\w\{-}\>"
+syn match luaUserFunc "\<[a-zA-Z_][a-zA-Z0-9_]*\>\ze\s\{-}("
 
 syn keyword luaKeyword self contained
 
+" match 'mytable.' and 'mytable:'
+syn match luaTableReference /\<\w\+\>\(\.\|:\)/
+
+" match 'MyClass' but not 'MYClass' or 'myClass'
+syn match luaClass "\<\u\l\w\{-}\>"
 
 " match 'word space =' contained in 'luaTable'
 " TODO !! (doesn't work :(  )
@@ -17,21 +19,8 @@ syn keyword luaKeyword self contained
 
 
 
-
-
-
-
-
-
-
-
-" add luaTableField as NOT ALLOWED
-"syn region luaFunctionBlock matchgroup=luaFunction start=/\<function\>/ end=/\<end\>/  transparent contains=ALLBUT,luaTodo,luaSpecial,luaElseifThen,luaElse,luaThenEnd,luaIn,luaTableField
-
-
-
-
 " We should move this in appropriate file ?
+
 hi link luaKeyword Statement
 
 hi luaTable cterm=bold ctermfg=2

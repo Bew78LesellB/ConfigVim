@@ -181,6 +181,7 @@ set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 
 set hlsearch		" do highlight the serched text
+set incsearch		" incremental search as you type
 
 " apply smart case searching
 set ignorecase
@@ -278,11 +279,25 @@ hi clear SignColumn
 hi SignColumn ctermbg=234
 
 
+" Ruby Colors
 hi clear rubyInstanceVariable
 hi rubyInstanceVariable ctermfg=33
 hi clear rubySymbol
 hi rubySymbol ctermfg=208
 
+" Lua Colors
+hi clear luaTableReference
+hi luaTableReference ctermfg=208
+hi clear luaFunction
+hi link luaFunction luaStatement
+
+" C Colors (can color c++ as well ?)
+hi link cStructure cStatement
+hi link cStorageClass cStatement
+hi clear cStructInstance cOperator cBoolComparator
+hi cStructInstance ctermfg=208
+hi cArithmOp ctermfg=3
+hi cBoolComparator cterm=bold ctermfg=3
 
 
 if has('mouse')
