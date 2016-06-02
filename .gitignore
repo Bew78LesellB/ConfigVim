@@ -2,6 +2,7 @@
 backup/
 undo/
 swap/
+spell/
 *.swp
 
 # plugins
