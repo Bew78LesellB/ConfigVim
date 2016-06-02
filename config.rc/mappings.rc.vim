@@ -70,6 +70,8 @@ nnoremap <M-z> :!zsh<cr>
 nnoremap <M-o> o<esc>
 nnoremap <M-O> O<esc>
 
+nnoremap Q :q<cr>
+
 "-- Insert helper
 "------------------------------------------------------------------
 

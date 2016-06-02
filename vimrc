@@ -14,7 +14,6 @@ Plug 'xolox/vim-misc'					" Auto-load Vim scripts (used by vim-easytags) (good!)
 " ui
 Plug 'Shougo/unite.vim'
 
-
 " -- Vim feature enhancer
 
 Plug 'sjl/gundo.vim'					" undo tree
@@ -29,7 +28,7 @@ Plug 'itchyny/lightline.vim'			" statusline builder
 " Temporary version of easytags to handle Universal CTags as a correct version
 Plug 'Wraul/vim-easytags', { 'branch' : 'fix-universal-detection'}	" ctags file managment and highlighting
 "Plug 'xolox/vim-easytags'				" ctags file managment and highlighting
-Plug 'majutsushi/tagbar'				" sidebar with arrenged tags of the current file
+Plug 'majutsushi/tagbar'				" sidebar with arranged tags of the current file
 
 " -- Insert mode helpers
 
@@ -267,9 +266,12 @@ hi TabLine     cterm=NONE    ctermfg=230 ctermbg=239
 hi TabLineFill cterm=reverse ctermfg=187 ctermbg=244
 
 hi clear Visual Todo
-hi Visual  ctermbg=238
+hi Visual ctermbg=238
 " We need the ctermbg=NONE at the end, I don't know why...
 hi Todo cterm=bold ctermfg=11 ctermbg=NONE
+
+hi clear BadSpell
+hi BadSpell cterm=underline
 
 hi clear SyntasticWarningSign SyntasticErrorSign
 hi SyntasticErrorSign ctermfg=1
@@ -291,6 +293,8 @@ hi luaTableReference ctermfg=208
 hi clear luaFunction
 hi link luaFunction luaStatement
 
+hi luaVariableTag cterm=italic ctermfg=112
+
 " C Colors (can color c++ as well ?)
 hi link cStructure cStatement
 hi link cStorageClass cStatement
@@ -299,6 +303,7 @@ hi cStructInstance ctermfg=208
 hi cArithmOp ctermfg=3
 hi cBoolComparator cterm=bold ctermfg=3
 
+hi cVariableTag cterm=italic ctermfg=112
 
 if has('mouse')
 	set mouse=nv " normal & visual

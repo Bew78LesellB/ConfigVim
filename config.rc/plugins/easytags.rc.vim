@@ -12,15 +12,24 @@ let g:easytags_by_filetype = '~/.vim/ft-tags/'
 
 let g:easytags_resolve_links = 1
 
-" add epitech style functions definitions (with tabs)
-let g:easytags_languages = {
-			\ 'c': {
-			\	'args': [
-			\		'--regex-c="/^[^\t]+[\t]+([a-z0-9_]+)\(.*\);?$/\1/f"'
-			\		],
-			\	}
-			\}
-
 " Include struct / class members in tag file
 " (can make tag file a lot bigger)
 let g:easytags_include_members = 1
+
+
+
+" Add tag kinds
+
+" Lua
+
+call xolox#easytags#define_tagkind({
+      \ 'filetype': 'lua',
+      \ 'hlgroup': 'luaVariable',
+      \ 'tagkinds': 'v'})
+
+" C/C++
+
+call xolox#easytags#define_tagkind({
+      \ 'filetype': 'cpp',
+      \ 'hlgroup': 'cVariable',
+      \ 'tagkinds': '[vl]'})
