@@ -25,3 +25,42 @@ re: fclean all
 
 .PHONY: all clean fclean re
 endsnippet
+
+
+
+# Comment
+
+snippet fline "Full line ---" b
+#----------------------------------------------------------------------------------
+endsnippet
+
+snippet #fline "Full line ---" b
+#----------------------------------------------------------------------------------
+endsnippet
+
+snippet mline "Mid line ---" b
+#-------------------------------------------------------------
+endsnippet
+
+snippet #mline "Mid line ---" b
+#-------------------------------------------------------------
+endsnippet
+
+snippet sline "Small line ---" b
+#----------------------------------------
+endsnippet
+
+snippet #sline "Small line ---" b
+#----------------------------------------
+endsnippet
+
+snippet section "Comment Section" b
+${1}
+# ${2:${VISUAL/^# //}}
+$1${0}
+endsnippet
+
+snippet header "Comment Header" b
+# ${1:${VISUAL:Comment/^# //}}
+${2}${0}
+endsnippet
