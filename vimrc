@@ -20,6 +20,7 @@ Plug 'sjl/gundo.vim'					" undo tree
 Plug 'szw/vim-ctrlspace'				" Control your space (buffers/tags/workspaces/etc..)
 Plug 'tpope/vim-abolish'				" Helpers for abbreviation, cased substitution & coercion
 Plug 'thinca/vim-visualstar'			" * for visualy selected text
+Plug 'mileszs/ack.vim'					" Use ack for vimgrep
 
 Plug 'itchyny/lightline.vim'			" statusline builder
 
@@ -86,6 +87,9 @@ Plug 'sudar/vim-arduino-snippets'		" Arduino snippets
 " OCaml
 Plug 'the-lambda-church/merlin'			" Context sensitive completion for OCaml + errors + type infos + source browsing
 Plug 'vim-scripts/omlet.vim'			" This mode offers automatic indentation and keyword highlighting
+
+" Crystal lang
+Plug 'rhysd/vim-crystal'				" Crystal lang integration for vim
 
 call plug#end()
 
@@ -293,7 +297,7 @@ hi luaTableReference ctermfg=208
 hi clear luaFunction
 hi link luaFunction luaStatement
 
-hi luaVariableTag cterm=italic ctermfg=112
+hi luaVariableTag cterm=italic ctermfg=30
 
 " C Colors (can color c++ as well ?)
 hi link cStructure cStatement
@@ -303,7 +307,7 @@ hi cStructInstance ctermfg=208
 hi cArithmOp ctermfg=3
 hi cBoolComparator cterm=bold ctermfg=3
 
-hi cVariableTag cterm=italic ctermfg=112
+hi cVariableTag cterm=italic ctermfg=30
 
 if has('mouse')
 	set mouse=nv " normal & visual
