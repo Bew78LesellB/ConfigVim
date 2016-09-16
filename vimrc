@@ -21,6 +21,8 @@ Plug 'szw/vim-ctrlspace'				" Control your space (buffers/tags/workspaces/etc..)
 Plug 'tpope/vim-abolish'				" Helpers for abbreviation, cased substitution & coercion
 Plug 'thinca/vim-visualstar'			" * for visualy selected text
 Plug 'mileszs/ack.vim'					" Use ack for vimgrep
+Plug 'hecal3/vim-leader-guide'			" leader keymap guide
+Plug 'pelodelfuego/vim-swoop'			" Search everywhere with context
 
 Plug 'itchyny/lightline.vim'			" statusline builder
 
@@ -48,7 +50,7 @@ Plug 'scrooloose/syntastic'				" syntastic - as-you-type errors checker
 
 " -- Autocompletion
 
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }				" Advanced completion engine
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --system-libclang --clang-completer' }				" Advanced completion engine
 
 " -- UI
 
@@ -159,6 +161,9 @@ if (has("gui"))
 	set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 11
 endif
 
+" map leader definition
+let mapleader = ","
+
 call s:loadConfigFile("mappings")
 
 "
@@ -172,9 +177,6 @@ set nocompatible
 set backspace=indent,eol,start
 
 set backup		" keep a backup file
-
-" map leader definition
-let mapleader = ","
 
 " always show the statusline
 set laststatus=2

@@ -129,7 +129,22 @@ inoremap <C-U> <C-G>u<C-U>
 nnoremap U <C-r>
 
 
+" Leader mappings
+let g:lmap = {}
 
+nnoremap <leader><leader> :<C-u>LeaderGuide ','<CR>
+
+let g:lmap.o = { 'name' : 'Open Stuff' }
+nmap <silent> <leader>oo  :copen<CR>
+let g:lmap.o.o = ['copen', 'Open quickfix']
+
+nmap <silent> <leader>ol  :lopen<CR>
+let g:lmap.o.l = ['lopen', 'Open locationlist']
+
+
+let g:lmap.a = { 'name' : "Arduino" }
+
+call leaderGuide#register_prefix_descriptions(",", "g:lmap")
 
 
 " Taken from visual-at.vim from Practical Vim 2nd Edition
