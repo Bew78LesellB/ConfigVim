@@ -34,7 +34,7 @@ augroup Asm
 	autocmd BufReadPost *.[sS] set ft=nasm
 augroup END
 
-
+"autocmd BufReadPost *.Xresources.d* setlocal ft=xdefaults
 
 
 " Disabled stuff - need review

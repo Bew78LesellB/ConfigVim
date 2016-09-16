@@ -114,14 +114,14 @@ struct ${1:`!p snip.rv = "t_" + (snip.basename or "name")`}
 endsnippet
 
 snippet fun "function" b
-${1:void} ${2:function_name}(${3})
+${2:void} ${1:function_name}(${3})
 {
 	${VISUAL}${0}
 }
 endsnippet
 
 snippet funp "function prototype" b
-${1:void} ${2:function_name}(${3});
+${2:void} ${1:function_name}(${3});
 endsnippet
 
 # vim:ft=snippets:

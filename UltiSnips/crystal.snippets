@@ -1,0 +1,53 @@
+snippet init "def initialize" b
+def initialize${1:(${2:args})}
+  ${VISUAL}${0}
+end
+endsnippet
+
+snippet def "method definition - no args" b
+def ${1:method_name}
+  ${VISUAL}${0}
+end
+endsnippet
+
+snippet defa "method definition - args" b
+def ${1:method_name}(${2:args})
+  ${VISUAL}${0}
+end
+endsnippet
+
+snippet module "Module" b
+module ${1:ModuleName}
+  ${VISUAL}${0}
+end
+endsnippet
+
+snippet class "Class" b
+class ${1:ClassName}
+  ${VISUAL}${0}
+end
+endsnippet
+
+snippet do "do ... end"
+do
+  ${0}
+end
+endsnippet
+
+snippet doa "do |args| ... end"
+do |${1:args}|
+  ${0}
+end
+endsnippet
+
+snippet describe "Spec - describe 'desc' do ... end" b
+describe "${1:description}" do
+  ${VISUAL}${0}
+end
+endsnippet
+
+snippet it "Spec - it 'desc' do ... end" b
+it "${1:description}" do
+  ${VISUAL}${0}
+end
+endsnippet
