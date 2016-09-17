@@ -1,7 +1,9 @@
 " LightLine Configuration :
 
+let g:lightline_solarized_background = 'dark'
+
 let g:lightline = {
-			\ 'colorscheme': 'solarized',
+			\ 'colorscheme': 'custom_background_solarized',
 			\ 'enable': {
 			\   'statusline': 1,
 			\   'tabline': 0,
