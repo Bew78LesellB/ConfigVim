@@ -1,11 +1,5 @@
 " VIM - mappings
 
-" Disable arrows
-inoremap <Left> <nop>
-inoremap <Right> <nop>
-inoremap <Up> <nop>
-inoremap <Down> <nop>
-
 " Easy short navigation in insert mode
 inoremap <C-h> <Left>
 inoremap <C-l> <Right>
@@ -71,6 +65,9 @@ nnoremap <M-o> o<esc>
 nnoremap <M-O> O<esc>
 
 nnoremap Q :q<cr>
+
+" THE missing one:
+"nnoremap ci( f(ci) " not working... :(
 
 "-- Insert helper
 "------------------------------------------------------------------
