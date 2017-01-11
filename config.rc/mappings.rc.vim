@@ -11,13 +11,13 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 " Redraw
-nnoremap <C-m> <C-l>
+nnoremap <C-r> <C-l>
 
 " Save buffer
-nnoremap <M-Space> :w<cr>
-inoremap <M-Space> <Esc>:w<cr>
-nnoremap <M-s> :w<cr>
-inoremap <M-s> <Esc>:w<cr>
+nnoremap <A-Space> :w<cr>
+inoremap <A-Space> <Esc>:w<cr>
+nnoremap <A-s> :w<cr>
+inoremap <A-s> <Esc>:w<cr>
 
 " I don't use theses, but it may be useful when
 " <M-Space> is not available (on some terminal)
@@ -28,9 +28,11 @@ inoremap <C-s> <Esc>:w<cr>
 "------------------------------------------------------------------
 
 " wrap
+set <M-w>=w
 nnoremap <M-w> :set wrap! wrap?<cr>
 
 " relativenumber
+set <M-r>=r
 nnoremap <M-r>	:set relativenumber! relativenumber?<CR>
 
 
@@ -50,6 +52,8 @@ nnoremap <silent> § :noh \| echo "Search cleared"<cr>
 "------------------------------------------------------------------
 
 " Goto tabs
+set <M-J>=J
+set <M-K>=K
 nnoremap <M-J> gT
 nnoremap <M-K> gt
 inoremap <M-J> <esc>gT
@@ -73,7 +77,7 @@ nnoremap Q :q<cr>
 "------------------------------------------------------------------
 
 " Insert a tabulation (Alt + i) in insert mode
-set <M-i>=é
+set <M-i>=i
 inoremap <M-i> <C-V><Tab>
 
 inoremap <M-o> <C-o>o
