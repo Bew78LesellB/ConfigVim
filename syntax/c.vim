@@ -13,13 +13,13 @@ sy match cArithmOp "\s\zs/\ze\s"
 sy match cArithmOp /\s\zs%\ze\s/
 
 " match the operators we can find in a conditional block
-sy match cBoolComparator /\s\+==/
-sy match cBoolComparator /\s\+!=/
-sy match cBoolComparator /\s\+</
-sy match cBoolComparator /\s\+<=/
-sy match cBoolComparator /\s\+>/
-sy match cBoolComparator /\s\+>=/
+sy match cBoolComparator / == /
+sy match cBoolComparator / != /
+sy match cBoolComparator / < /
+sy match cBoolComparator / <= /
+sy match cBoolComparator / > /
+sy match cBoolComparator / >= /
 
-sy match cBoolComparator /\s\+&&/
-sy match cBoolComparator /\s\+||/
+sy match cBoolComparator / && /
+sy match cBoolComparator / || /
 
