@@ -5,9 +5,11 @@ extends c
 # We want to overwrite everything in parent ft.
 priority -49
 
-###########################################################################
-#                            TextMate Snippets                            #
-###########################################################################
+snippet doxcom "Doxygen comment" b
+/**
+ * ${1:Comment}
+ */$0
+endsnippet
 
 # TODO: how to set length of ======= to 80 columns automatically..
 snippet comline "hr comment line" b
@@ -157,6 +159,10 @@ endsnippet
 
 snippet cout "std::cout std::endl"
 std::cout << ${1} << std::endl;${0}
+endsnippet
+
+snippet cerr "std::cerr std::endl"
+std::cerr << ${1} << std::endl;${0}
 endsnippet
 
 ###########################################################################
