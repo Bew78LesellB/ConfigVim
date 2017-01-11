@@ -93,6 +93,9 @@ Plug 'vim-scripts/omlet.vim'			" This mode offers automatic indentation and keyw
 " Crystal lang
 Plug 'rhysd/vim-crystal'				" Crystal lang integration for vim
 
+" Python
+Plug 'hynek/vim-python-pep8-indent'		" PEP8 python indentation
+
 call plug#end()
 
 filetype plugin indent on
