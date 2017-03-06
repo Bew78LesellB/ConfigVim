@@ -55,3 +55,23 @@ it "${1:description}" do
   ${VISUAL}${0}
 end
 endsnippet
+
+# Macro helpers
+
+snippet mac "Create a macro" b
+macro ${1:macro_name}${2:(${3:args})}
+  ${VISUAL}${0}
+end
+endsnippet
+
+snippet ms "Macro stmt {% %}" w
+{% $1 %}$2
+endsnippet
+
+snippet mp "Macro printed stmt {{ }}" w
+{{ $1 }}$2
+endsnippet
+
+snippet md "Macro debug here" b
+{% debug() %}$1
+endsnippet
