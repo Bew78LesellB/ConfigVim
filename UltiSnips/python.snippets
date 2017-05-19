@@ -31,6 +31,10 @@ snippet doc "One line doc" b
 """${1:TODO: doc}"""$0
 endsnippet
 
+snippet p "print(...)" b
+print($1)$0
+endsnippet
+
 ##########
 # COMMON #
 ##########
@@ -251,15 +255,9 @@ endglobal
 # Class & Special Method Name Snippets #
 ########################################
 
-snippet class "class with inheritance" b
-class ${1:MyClass}(${2:object}):
-	"""${3:TODO: doc}"""
-$0
-endsnippet
-
-snippet sclass "mini class" b
-class ${1:MyClass}:
-	"""${2:TODO: doc}"""
+snippet class "class definition" b
+class ${1:MyClass}${2:(${3:object})}:
+	"""${4:TODO: doc}"""
 $0
 endsnippet
 
@@ -405,7 +403,7 @@ endsnippet
 
 snippet /""/ "triple quoted string (double quotes)" r
 """
-    ${VISUAL}$1
+${VISUAL}$1
 """$0
 endsnippet
 

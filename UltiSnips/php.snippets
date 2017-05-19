@@ -5,8 +5,14 @@ priority -50
 
 # HTML helpers
 
-snippet phptag "<?php tag" w
+snippet phptag "<?php tag ?>" w
 <?php $1 ?>$0
+endsnippet
+
+snippet phptagmulti "<?php multiline tag ?>" b
+<?php
+$1
+?>$0
 endsnippet
 
 snippet echotag "<?= tag" w
