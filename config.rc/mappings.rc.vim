@@ -36,15 +36,6 @@ set <M-r>=r
 nnoremap <M-r>	:set relativenumber! relativenumber?<CR>
 
 
-" Start interactive EasyAlign in visual mode (e.g. vipgea)
-xmap gea <Plug>(EasyAlign)
-
-" Start interactive EasyAlign for a motion/text object (e.g. geaip)
-nmap gea <Plug>(EasyAlign)
-
-" Open Tagbar
-nnoremap <F8> :TagbarToggle<CR>
-
 " Discard last search highlight
 nnoremap <silent> § :noh \| echo "Search cleared"<cr>
 
@@ -129,23 +120,6 @@ inoremap <C-U> <C-G>u<C-U>
 " logical undo
 nnoremap U <C-r>
 
-
-" Leader mappings
-let g:lmap = {}
-
-nnoremap <leader><leader> :<C-u>LeaderGuide ','<CR>
-
-let g:lmap.o = { 'name' : 'Open Stuff' }
-nmap <silent> <leader>oo  :copen<CR>
-let g:lmap.o.o = ['copen', 'Open quickfix']
-
-nmap <silent> <leader>ol  :lopen<CR>
-let g:lmap.o.l = ['lopen', 'Open locationlist']
-
-
-let g:lmap.a = { 'name' : "Arduino" }
-
-call leaderGuide#register_prefix_descriptions(",", "g:lmap")
 
 
 " Taken from visual-at.vim from Practical Vim 2nd Edition

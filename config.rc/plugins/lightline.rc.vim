@@ -3,7 +3,6 @@
 let g:lightline_solarized_background = 'dark'
 
 let g:lightline = {
-			\ 'colorscheme': 'custom_background_solarized',
 			\ 'enable': {
 			\   'statusline': 1,
 			\   'tabline': 0,
@@ -40,16 +39,11 @@ let g:lightline = {
 function! LightLineFilename()
 	let fname = expand('%:t')
 	return fname == 'ControlP' ? g:lightline.ctrlp_item :
-				\ fname == '__Tagbar__' ? g:lightline.fname :
-				\ fname =~ '__Gundo\|NERD_tree' ? '' :
-				\ &ft == 'vimfiler' ? vimfiler#get_status_string() :
-				\ &ft == 'unite' ? unite#get_status_string() :
-				\ &ft == 'vimshell' ? vimshell#get_status_string() :
 				\ ('' != fname ? fname : '[No Name]')
 endfunction
 
 function! LightLineFiletype()
-	return strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft'
+	return strlen(&filetype) ? &filetype : 'no ft'
 endfunction
 
 function! LightLinePercent()
@@ -67,20 +61,3 @@ function! LightLineMode()
 				\ &ft == 'vimshell' ? 'VimShell' :
 				\ winwidth(0) > 60 ? lightline#mode() : ''
 endfunction
-
-let g:tagbar_status_func = 'TagbarStatusFunc'
-function! TagbarStatusFunc(current, sort, fname, ...) abort
-	let g:lightline.fname = a:fname
-	return lightline#statusline(0)
-endfunction
-
-"" Syntastic components
-"function! LightLineSyntasticError()
-"	let g:syntastic_stl_format = '%E{Err: %fe #%e}'
-"	return SyntasticStatuslineFlag()
-"endfunction
-"
-"function! LightLineSyntasticWarning()
-"	let g:syntastic_stl_format = '%W{Warn: %fw #%w}'
-"	return SyntasticStatuslineFlag()
-"endfunction

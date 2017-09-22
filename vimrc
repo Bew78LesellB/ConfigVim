@@ -3,17 +3,6 @@ set nocompatible
 filetype off
 call plug#begin('~/.vim/plugged')
 
-"Plug 'gmarik/vundle'					" vundle - Plugin loader
-
-" -- Plugins Helpers
-
-" core
-Plug 'xolox/vim-misc'					" Auto-load Vim scripts (used by vim-easytags) (good!)
-"Plug 'Shougo/vimproc.vim'				" Helper used by vimshell
-
-" ui
-Plug 'Shougo/unite.vim'
-
 " -- Vim feature enhancer
 
 Plug 'sjl/gundo.vim'					" undo tree
@@ -21,80 +10,20 @@ Plug 'szw/vim-ctrlspace'				" Control your space (buffers/tags/workspaces/etc..)
 Plug 'tpope/vim-abolish'				" Helpers for abbreviation, cased substitution & coercion
 Plug 'thinca/vim-visualstar'			" * for visualy selected text
 Plug 'mileszs/ack.vim'					" Use ack for vimgrep
-Plug 'hecal3/vim-leader-guide'			" leader keymap guide
-Plug 'pelodelfuego/vim-swoop'			" Search everywhere with context
 
 Plug 'itchyny/lightline.vim'			" statusline builder
 
 " -- Tags managers / users
 
-" Temporary version of easytags to handle Universal CTags as a correct version
-Plug 'Wraul/vim-easytags', { 'branch' : 'fix-universal-detection'}	" ctags file managment and highlighting
-"Plug 'xolox/vim-easytags'				" ctags file managment and highlighting
-Plug 'majutsushi/tagbar'				" sidebar with arranged tags of the current file
-
 " -- Insert mode helpers
 
 Plug 'Raimondi/delimitMate'				" auto insert of second ()''{}[]\"\" etc...
 Plug 'tpope/vim-surround'				" vim-surround
-Plug 'SirVer/ultisnips'					" Advanced snippets
-
-" -- Text refactor / formater
-
-"Plug 'terryma/vim-multiple-cursors'		" multiple cursor
-Plug 'junegunn/vim-easy-align'			" An advanced, easy-to-use Vim alignment plugin.
-
-" -- Syntax checker
-
-Plug 'scrooloose/syntastic'				" syntastic - as-you-type errors checker
-
-" -- Autocompletion
-
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --system-libclang --clang-completer' }				" Advanced completion engine
-
-" -- UI
 
 Plug 'mhinz/vim-startify'					" add a custom startup screen for vim
 
-Plug 'Bew78LesellB/vim-colors-solarized'	" vim-colors-solarized - favorite colorscheme <3
-Plug 'xterm-color-table.vim'				" Provide some commands to display all cterm colors
-Plug 'ryanoasis/vim-devicons'
-
-" -- File explorer
-Plug 'Shougo/vimfiler.vim'
-
-" Vim Shell
-"Plugin 'Shougo/vimshell.vim'
-
-" -- Per language plugins
-
-" Vimperator
-Plug 'superbrothers/vim-vimperator'
-
-" Markdown
-Plug 'gabrielelana/vim-markdown' " markdown advanced syntax highlighter and editor
-
-" C / CPP
-Plug 'octol/vim-cpp-enhanced-highlight'	" Better highlight
-
-" Lua
-"Plugin 'xolox/vim-lua-ftplugin'		" Package lua completion (it disable the quotes autoinsert of delimitMate...)
-"Plugin 'xolox/vim-lua-inspect'			" Advanced lua semantic analysis (too heavy)
-
-" Arduino
-Plug 'jplaut/vim-arduino-ino'			" Arduino project compilation and deploy
-Plug 'sudar/vim-arduino-syntax'			" Arduino syntax
-Plug 'sudar/vim-arduino-snippets'		" Arduino snippets
-
-" OCaml
-Plug 'the-lambda-church/merlin'			" Context sensitive completion for OCaml + errors + type infos + source browsing
-Plug 'vim-scripts/omlet.vim'			" This mode offers automatic indentation and keyword highlighting
-
 " Crystal lang
 Plug 'rhysd/vim-crystal'				" Crystal lang integration for vim
-
-" Python
-Plug 'hynek/vim-python-pep8-indent'		" PEP8 python indentation
 
 call plug#end()
 
@@ -104,22 +33,8 @@ set omnifunc=syntaxcomplete#Complete
 
 set encoding=utf-8
 
-" Change color of cursor in insert/normal modes
-"
-" Start insert mode
-let &t_SI = "]12;#009688\007"
-" Start replace mode
-let &t_SR = "]12;#ff5722\007"
 
-let &t_EI = "]12;white\007"
-
-
-" Config Helper - TODO: convert as a vim plugin (customizable)
-if has('win32') || has ('win64')
-	let $VIMHOME = $VIM."/vimfiles"
-else
-	let $VIMHOME = $HOME."/.vim"
-endif
+let $VIMHOME = $HOME."/.vim"
 
 " Configuration file loader
 
@@ -252,22 +167,10 @@ set shiftwidth=4
 set noexpandtab
 
 
-" TODO Setup X clipboard
-" > Use register "* for all yank/delete/change
-"""" > Use register "+ for X11 clipboard
-"set clipboard=unnamed
-
 "## Setting colorscheme
 set t_Co=256
-let g:solarized_termcolors = 256
 syntax enable " Not 'syntax on' which overrides colorscheme
-colorscheme solarized
-
-set background=dark
-if (!has("gui_running"))
-	set background=light " this is weird but it fixes dark color...
-endif
-
+colorscheme desert
 
 " Nice colors for TabLine
 hi TabLineSel  cterm=NONE    ctermfg=187 ctermbg=235
