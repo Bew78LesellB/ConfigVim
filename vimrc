@@ -9,7 +9,6 @@ Plug 'sjl/gundo.vim'					" undo tree
 Plug 'szw/vim-ctrlspace'				" Control your space (buffers/tags/workspaces/etc..)
 Plug 'tpope/vim-abolish'				" Helpers for abbreviation, cased substitution & coercion
 Plug 'thinca/vim-visualstar'			" * for visualy selected text
-Plug 'mileszs/ack.vim'					" Use ack for vimgrep
 
 Plug 'itchyny/lightline.vim'			" statusline builder
 
